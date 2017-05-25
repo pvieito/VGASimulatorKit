@@ -1,0 +1,579 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AA8D19821ECC7F8B008A9B19 /* CommandLineKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA8D197F1ECC7EB2008A9B19 /* CommandLineKit.framework */; };
+		AA8D19831ECC7F8B008A9B19 /* CoreGraphicsKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA8D19761ECC7EA2008A9B19 /* CoreGraphicsKit.framework */; };
+		AA8D19841ECC7F8B008A9B19 /* LoggerKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA8D19621ECC7E8B008A9B19 /* LoggerKit.framework */; };
+		AAA4D6641ED527EB00263E25 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8D19541ECC7E51008A9B19 /* main.swift */; };
+		AAA4D6841ED5B5D200263E25 /* VGASimulatorCore.c in Sources */ = {isa = PBXBuildFile; fileRef = AAA4D6821ED5B5D200263E25 /* VGASimulatorCore.c */; };
+		AAA4D6851ED5B5D200263E25 /* VGASimulatorCore.h in Headers */ = {isa = PBXBuildFile; fileRef = AAA4D6831ED5B5D200263E25 /* VGASimulatorCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AAA4D6861ED5B65900263E25 /* VGASimulatorCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAA4D6781ED5B5B600263E25 /* VGASimulatorCore.framework */; };
+		AAD76A851ED63EC500E26415 /* VGASimulation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD76A831ED63E9600E26415 /* VGASimulation.swift */; };
+		AAD76A871ED640B100E26415 /* VGAResolution.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD76A861ED640B100E26415 /* VGAResolution.swift */; };
+		AAD76A891ED6443200E26415 /* VGAMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD76A881ED6443200E26415 /* VGAMode.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		AA8D19611ECC7E8B008A9B19 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AA8D195D1ECC7E8B008A9B19 /* LoggerKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = AABBD9A41E5761BD00AE5B46;
+			remoteInfo = LoggerKit;
+		};
+		AA8D19751ECC7EA2008A9B19 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AA8D196E1ECC7EA2008A9B19 /* CoreGraphicsKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = AA558AED1EC28E3F0099A8B0;
+			remoteInfo = CoreGraphicsKit;
+		};
+		AA8D19771ECC7EA2008A9B19 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AA8D196E1ECC7EA2008A9B19 /* CoreGraphicsKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = AA7D0E5D1EC299D9005036CE;
+			remoteInfo = CoreGraphicsTool;
+		};
+		AA8D197E1ECC7EB2008A9B19 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AA8D19791ECC7EB2008A9B19 /* CommandLineKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5D06884319674D7D00BBFAAC;
+			remoteInfo = CommandLineKit;
+		};
+		AA8D19801ECC7EB2008A9B19 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AA8D19791ECC7EB2008A9B19 /* CommandLineKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5D06884E19674D7D00BBFAAC;
+			remoteInfo = CommandLineKitTests;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		AA8D194F1ECC7E51008A9B19 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		AA3BDBDE1ECDC6130041E3E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AA8D19511ECC7E51008A9B19 /* VGASimulator */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = VGASimulator; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA8D19541ECC7E51008A9B19 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		AA8D195D1ECC7E8B008A9B19 /* LoggerKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = LoggerKit.xcodeproj; path = ../LoggerKit/LoggerKit.xcodeproj; sourceTree = "<group>"; };
+		AA8D196E1ECC7EA2008A9B19 /* CoreGraphicsKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CoreGraphicsKit.xcodeproj; path = ../CoreGraphicsKit/CoreGraphicsKit.xcodeproj; sourceTree = "<group>"; };
+		AA8D19791ECC7EB2008A9B19 /* CommandLineKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CommandLineKit.xcodeproj; path = ../CommandLineKit/CommandLineKit.xcodeproj; sourceTree = "<group>"; };
+		AAA4D6781ED5B5B600263E25 /* VGASimulatorCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = VGASimulatorCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AAA4D67B1ED5B5B600263E25 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AAA4D6821ED5B5D200263E25 /* VGASimulatorCore.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = VGASimulatorCore.c; sourceTree = "<group>"; };
+		AAA4D6831ED5B5D200263E25 /* VGASimulatorCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VGASimulatorCore.h; sourceTree = "<group>"; };
+		AAA4D6881ED5B68700263E25 /* VGASimulator.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = VGASimulator.py; sourceTree = "<group>"; };
+		AAA4D6891ED5B68700263E25 /* VGASimulatorCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGASimulatorCore.swift; sourceTree = "<group>"; };
+		AAD76A831ED63E9600E26415 /* VGASimulation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VGASimulation.swift; path = VGASimulatorCore/VGASimulation.swift; sourceTree = SOURCE_ROOT; };
+		AAD76A861ED640B100E26415 /* VGAResolution.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VGAResolution.swift; sourceTree = "<group>"; };
+		AAD76A881ED6443200E26415 /* VGAMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VGAMode.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AA8D194E1ECC7E51008A9B19 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AAA4D6861ED5B65900263E25 /* VGASimulatorCore.framework in Frameworks */,
+				AA8D19821ECC7F8B008A9B19 /* CommandLineKit.framework in Frameworks */,
+				AA8D19831ECC7F8B008A9B19 /* CoreGraphicsKit.framework in Frameworks */,
+				AA8D19841ECC7F8B008A9B19 /* LoggerKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AAA4D6741ED5B5B600263E25 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AA8D19481ECC7E51008A9B19 = {
+			isa = PBXGroup;
+			children = (
+				AA8D19791ECC7EB2008A9B19 /* CommandLineKit.xcodeproj */,
+				AA8D196E1ECC7EA2008A9B19 /* CoreGraphicsKit.xcodeproj */,
+				AA8D195D1ECC7E8B008A9B19 /* LoggerKit.xcodeproj */,
+				AAA4D6791ED5B5B600263E25 /* VGASimulatorCore */,
+				AA8D19531ECC7E51008A9B19 /* VGASimulator */,
+				AA8D19521ECC7E51008A9B19 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AA8D19521ECC7E51008A9B19 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AA8D19511ECC7E51008A9B19 /* VGASimulator */,
+				AAA4D6781ED5B5B600263E25 /* VGASimulatorCore.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AA8D19531ECC7E51008A9B19 /* VGASimulator */ = {
+			isa = PBXGroup;
+			children = (
+				AAD76A831ED63E9600E26415 /* VGASimulation.swift */,
+				AAD76A861ED640B100E26415 /* VGAResolution.swift */,
+				AAD76A881ED6443200E26415 /* VGAMode.swift */,
+				AA8D19541ECC7E51008A9B19 /* main.swift */,
+				AA3BDBDE1ECDC6130041E3E4 /* Info.plist */,
+			);
+			path = VGASimulator;
+			sourceTree = "<group>";
+		};
+		AA8D195E1ECC7E8B008A9B19 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AA8D19621ECC7E8B008A9B19 /* LoggerKit.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AA8D196F1ECC7EA2008A9B19 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AA8D19761ECC7EA2008A9B19 /* CoreGraphicsKit.framework */,
+				AA8D19781ECC7EA2008A9B19 /* CoreGraphicsTool */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AA8D197A1ECC7EB2008A9B19 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AA8D197F1ECC7EB2008A9B19 /* CommandLineKit.framework */,
+				AA8D19811ECC7EB2008A9B19 /* CommandLineKitTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AAA4D6791ED5B5B600263E25 /* VGASimulatorCore */ = {
+			isa = PBXGroup;
+			children = (
+				AAA4D6821ED5B5D200263E25 /* VGASimulatorCore.c */,
+				AAA4D6831ED5B5D200263E25 /* VGASimulatorCore.h */,
+				AAA4D67B1ED5B5B600263E25 /* Info.plist */,
+				AAA4D6871ED5B68700263E25 /* Legacy */,
+			);
+			path = VGASimulatorCore;
+			sourceTree = "<group>";
+		};
+		AAA4D6871ED5B68700263E25 /* Legacy */ = {
+			isa = PBXGroup;
+			children = (
+				AAA4D6881ED5B68700263E25 /* VGASimulator.py */,
+				AAA4D6891ED5B68700263E25 /* VGASimulatorCore.swift */,
+			);
+			path = Legacy;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		AAA4D6751ED5B5B600263E25 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AAA4D6851ED5B5D200263E25 /* VGASimulatorCore.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		AA8D19501ECC7E51008A9B19 /* VGASimulator */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AA8D19581ECC7E51008A9B19 /* Build configuration list for PBXNativeTarget "VGASimulator" */;
+			buildPhases = (
+				AA8D194D1ECC7E51008A9B19 /* Sources */,
+				AA8D194E1ECC7E51008A9B19 /* Frameworks */,
+				AA8D194F1ECC7E51008A9B19 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = VGASimulator;
+			productName = VGASimulator;
+			productReference = AA8D19511ECC7E51008A9B19 /* VGASimulator */;
+			productType = "com.apple.product-type.tool";
+		};
+		AAA4D6771ED5B5B600263E25 /* VGASimulatorCore */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AAA4D67D1ED5B5B600263E25 /* Build configuration list for PBXNativeTarget "VGASimulatorCore" */;
+			buildPhases = (
+				AAA4D6731ED5B5B600263E25 /* Sources */,
+				AAA4D6741ED5B5B600263E25 /* Frameworks */,
+				AAA4D6751ED5B5B600263E25 /* Headers */,
+				AAA4D6761ED5B5B600263E25 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = VGASimulatorCore;
+			productName = VGASimulatorCore;
+			productReference = AAA4D6781ED5B5B600263E25 /* VGASimulatorCore.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AA8D19491ECC7E51008A9B19 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = "Pedro José Pereira Vieito";
+				TargetAttributes = {
+					AA8D19501ECC7E51008A9B19 = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = T7MC635YG5;
+						LastSwiftMigration = 0830;
+						ProvisioningStyle = Automatic;
+					};
+					AAA4D6771ED5B5B600263E25 = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = T7MC635YG5;
+						LastSwiftMigration = 0830;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = AA8D194C1ECC7E51008A9B19 /* Build configuration list for PBXProject "VGASimulator" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = AA8D19481ECC7E51008A9B19;
+			productRefGroup = AA8D19521ECC7E51008A9B19 /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = AA8D197A1ECC7EB2008A9B19 /* Products */;
+					ProjectRef = AA8D19791ECC7EB2008A9B19 /* CommandLineKit.xcodeproj */;
+				},
+				{
+					ProductGroup = AA8D196F1ECC7EA2008A9B19 /* Products */;
+					ProjectRef = AA8D196E1ECC7EA2008A9B19 /* CoreGraphicsKit.xcodeproj */;
+				},
+				{
+					ProductGroup = AA8D195E1ECC7E8B008A9B19 /* Products */;
+					ProjectRef = AA8D195D1ECC7E8B008A9B19 /* LoggerKit.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				AA8D19501ECC7E51008A9B19 /* VGASimulator */,
+				AAA4D6771ED5B5B600263E25 /* VGASimulatorCore */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		AA8D19621ECC7E8B008A9B19 /* LoggerKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = LoggerKit.framework;
+			remoteRef = AA8D19611ECC7E8B008A9B19 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		AA8D19761ECC7EA2008A9B19 /* CoreGraphicsKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = CoreGraphicsKit.framework;
+			remoteRef = AA8D19751ECC7EA2008A9B19 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		AA8D19781ECC7EA2008A9B19 /* CoreGraphicsTool */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = CoreGraphicsTool;
+			remoteRef = AA8D19771ECC7EA2008A9B19 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		AA8D197F1ECC7EB2008A9B19 /* CommandLineKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = CommandLineKit.framework;
+			remoteRef = AA8D197E1ECC7EB2008A9B19 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		AA8D19811ECC7EB2008A9B19 /* CommandLineKitTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = CommandLineKitTests.xctest;
+			remoteRef = AA8D19801ECC7EB2008A9B19 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AAA4D6761ED5B5B600263E25 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AA8D194D1ECC7E51008A9B19 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AAD76A851ED63EC500E26415 /* VGASimulation.swift in Sources */,
+				AAD76A871ED640B100E26415 /* VGAResolution.swift in Sources */,
+				AAA4D6641ED527EB00263E25 /* main.swift in Sources */,
+				AAD76A891ED6443200E26415 /* VGAMode.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AAA4D6731ED5B5B600263E25 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AAA4D6841ED5B5D200263E25 /* VGASimulatorCore.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		AA8D19561ECC7E51008A9B19 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		AA8D19571ECC7E51008A9B19 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		AA8D19591ECC7E51008A9B19 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CREATE_INFOPLIST_SECTION_IN_BINARY = YES;
+				DEVELOPMENT_TEAM = T7MC635YG5;
+				INFOPLIST_FILE = "$(SRCROOT)/VGASimulator/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx";
+				LIBRARY_SEARCH_PATHS = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx;
+				PRODUCT_BUNDLE_IDENTIFIER = com.pvieito.VGASimulator;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		AA8D195A1ECC7E51008A9B19 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CREATE_INFOPLIST_SECTION_IN_BINARY = YES;
+				DEVELOPMENT_TEAM = T7MC635YG5;
+				INFOPLIST_FILE = "$(SRCROOT)/VGASimulator/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx";
+				LIBRARY_SEARCH_PATHS = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx;
+				PRODUCT_BUNDLE_IDENTIFIER = com.pvieito.VGASimulator;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		AAA4D67E1ED5B5B600263E25 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = T7MC635YG5;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				GCC_OPTIMIZATION_LEVEL = fast;
+				INFOPLIST_FILE = VGASimulatorCore/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.pvieito.VGASimulatorCore;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		AAA4D67F1ED5B5B600263E25 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = T7MC635YG5;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				GCC_OPTIMIZATION_LEVEL = fast;
+				INFOPLIST_FILE = VGASimulatorCore/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.pvieito.VGASimulatorCore;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AA8D194C1ECC7E51008A9B19 /* Build configuration list for PBXProject "VGASimulator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA8D19561ECC7E51008A9B19 /* Debug */,
+				AA8D19571ECC7E51008A9B19 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AA8D19581ECC7E51008A9B19 /* Build configuration list for PBXNativeTarget "VGASimulator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA8D19591ECC7E51008A9B19 /* Debug */,
+				AA8D195A1ECC7E51008A9B19 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AAA4D67D1ED5B5B600263E25 /* Build configuration list for PBXNativeTarget "VGASimulatorCore" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AAA4D67E1ED5B5B600263E25 /* Debug */,
+				AAA4D67F1ED5B5B600263E25 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AA8D19491ECC7E51008A9B19 /* Project object */;
+}
