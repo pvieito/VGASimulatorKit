@@ -6,19 +6,14 @@
 //  Copyright © 2017 Pedro José Pereira Vieito. All rights reserved.
 //
 
-#include <stdint.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <stdbool.h>
-#include <string.h>
+#include "VGASimulatorCore.h"
+
+static FILE * filePointer;
 
 int VGAResolutionWidth = 1280;
 int VGAResolutionHeight = 1024;
-
 int VGABackPorchX = 318;
 int VGABackPorchY = 38;
-
-static FILE * filePointer;
 
 int VGAOpenFile(const char * path) {
     filePointer = fopen(path, "r");
@@ -55,7 +50,7 @@ int VGAGetNextLine(char **line) {
     return 0;
 }
 
-int VGAGetNextLineComponents(bool *hSync, bool *vSync, uint32_t *red, uint32_t *green, uint32_t *blue) {
+int VGAGetNextOutput(struct VGAOutput *vgaOuput) {
 
     static char * line = NULL;
 
@@ -70,19 +65,19 @@ int VGAGetNextLineComponents(bool *hSync, bool *vSync, uint32_t *red, uint32_t *
     while (pch != NULL) {
         switch (index) {
             case 2:
-                *hSync = strcmp(pch, "1") == 0;
+                vgaOuput->hSync = strcmp(pch, "1") == 0;
                 break;
             case 3:
-                *vSync = strcmp(pch, "1") == 0;
+                vgaOuput->vSync = strcmp(pch, "1") == 0;
                 break;
             case 4:
-                *red = (uint32_t)strtol(pch, NULL, 2) << 4;
+                vgaOuput->red = (uint32_t)strtol(pch, NULL, 2) << 4;
                 break;
             case 5:
-                *green = (uint32_t)strtol(pch, NULL, 2) << 4;
+                vgaOuput->green = (uint32_t)strtol(pch, NULL, 2) << 4;
                 break;
             case 6:
-                *blue = (uint32_t)strtol(pch, NULL, 2) << 4;
+                vgaOuput->blue = (uint32_t)strtol(pch, NULL, 2) << 4;
                 break;
         }
 
@@ -101,9 +96,9 @@ int VGAGetNextFrame(uint32_t *frameBuffer) {
     static int hCounter = 0;
     static int vCounter = 0;
 
-    static bool lastHSync = false;
-    static bool lastVSync = false;
-    
+    struct VGAOutput lastOutput;
+    struct VGAOutput nextOutput;
+
     static int frameCounter = 0;
 
     bool showFrame = false;
@@ -112,16 +107,9 @@ int VGAGetNextFrame(uint32_t *frameBuffer) {
         return -1;
     }
 
-    bool hSync = false;
-    bool vSync = false;
+    while (VGAGetNextOutput(&nextOutput) >= 0) {
 
-    uint32_t red = 0;
-    uint32_t green = 0;
-    uint32_t blue = 0;
-
-    while (VGAGetNextLineComponents(&hSync, &vSync, &red, &green, &blue) >= 0) {
-
-        if (!lastHSync && hSync) {
+        if (!lastOutput.hSync && nextOutput.hSync) {
             // New horizontal line
             hCounter = 0;
 
@@ -137,7 +125,7 @@ int VGAGetNextFrame(uint32_t *frameBuffer) {
             backPorchXCounter = 0;
         }
 
-        if (vSync && hSync) {
+        if (nextOutput.vSync && nextOutput.hSync) {
             // Increment this so we know how far we are
             // After the hsync pulse
             backPorchXCounter += 1;
@@ -148,7 +136,7 @@ int VGAGetNextFrame(uint32_t *frameBuffer) {
 
                 // Add pixel
                 if (hCounter < VGAResolutionWidth && vCounter < VGAResolutionHeight) {
-                    frameBuffer[VGAResolutionWidth * vCounter + hCounter] = (blue << 24) + (green << 16) + (red << 8);
+                    frameBuffer[VGAResolutionWidth * vCounter + hCounter] = (nextOutput.blue << 24) + (nextOutput.green << 16) + (nextOutput.red << 8);
                 }
 
                 if (backPorchXCounter >= VGABackPorchX) {
@@ -157,7 +145,7 @@ int VGAGetNextFrame(uint32_t *frameBuffer) {
             }
         }
 
-        if (!lastVSync && vSync) {
+        if (!lastOutput.vSync && nextOutput.vSync) {
 
             if (frameCounter > 0) {
                 showFrame = true;
@@ -172,8 +160,7 @@ int VGAGetNextFrame(uint32_t *frameBuffer) {
             backPorchYCounter = 0;
         }
 
-        lastHSync = hSync;
-        lastVSync = vSync;
+        lastOutput = nextOutput;
 
         if (showFrame) {
             return frameCounter - 1;

@@ -1,5 +1,5 @@
 //
-//  VGASimulatorCore.swift
+//  VGASimulation.swift
 //  VGASimulator
 //
 //  Created by Pedro José Pereira Vieito on 25/5/17.
@@ -35,8 +35,12 @@ public class VGASimulation {
     private var hCounter = 0
     private var vCounter = 0
 
-    private var lastHSync = false
-    private var lastVSync = false
+    private var lastOutput = VGAOutput()
+    private var nextOutput = VGAOutput() {
+        willSet {
+            self.lastOutput = self.nextOutput
+        }
+    }
 
     private var frameCounter = 0
     private var lastFrame = false
@@ -92,15 +96,9 @@ public class VGASimulation {
 
         var frameComplete = false
 
-        var hSync = false
-        var vSync = false
-        var red: UInt32 = 0
-        var green: UInt32 = 0
-        var blue: UInt32 = 0
+        while VGAGetNextOutput(&nextOutput) >= 0 {
 
-        while VGAGetNextLineComponents(&hSync, &vSync, &red, &green, &blue) >= 0 {
-
-            if !lastVSync && vSync {
+            if !lastOutput.vSync && nextOutput.vSync {
 
                 // Complete frame
                 frameComplete = frameCounter > 0
@@ -111,7 +109,7 @@ public class VGASimulation {
                 // Set this to zero so we can count up to the actual
                 backPorchYCounter = 0
             }
-            else if !lastHSync && hSync {
+            else if !lastOutput.hSync && nextOutput.hSync {
 
                 // Complete row
                 hCounter = 0
@@ -127,7 +125,7 @@ public class VGASimulation {
                 // Set this to zero so we can count up to the actual
                 backPorchXCounter = 0
             }
-            else if vSync && hSync {
+            else if nextOutput.vSync && nextOutput.hSync {
 
                 // Increment this so we know how far we are
                 // After the hsync pulse
@@ -139,7 +137,7 @@ public class VGASimulation {
 
                     // Add pixel
                     if hCounter < resolution.width && vCounter < resolution.height {
-                        frameBuffer[resolution.width * vCounter + hCounter] = blue << 24 + green << 16 + red << 8
+                        frameBuffer[resolution.width * vCounter + hCounter] = nextOutput.blue << 24 + nextOutput.green << 16 + nextOutput.red << 8
                     }
 
                     if backPorchXCounter >= self.mode.backPorchX {
@@ -148,17 +146,14 @@ public class VGASimulation {
                 }
             }
 
-            lastHSync = hSync
-            lastVSync = vSync
-
             if frameComplete {
                 return
             }
         }
 
-        lastFrame = true
+        VGACloseFile()
 
-        self.inputSimulationHandle.closeFile()
+        lastFrame = true
     }
 }
 
@@ -169,7 +164,7 @@ extension VGASimulation {
         return AnyIterator<CGImage> {
 
             do {
-                try self.nextFrameC()
+                try self.nextFrame()
                 return self.context.makeImage()
             }
             catch {

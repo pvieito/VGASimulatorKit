@@ -9,10 +9,9 @@
 
 import Cocoa
 import LoggerKit
-import CoreGraphics
 import CoreGraphicsKit
 import CommandLineKit
-import VGASimulatorCore
+import VGASimulatorKit
 
 
 let inputOption = StringOption(shortFlag: "i", longFlag: "input", required: true, helpMessage: "Input simulation.")
