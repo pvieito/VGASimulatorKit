@@ -50,7 +50,7 @@ int VGAGetNextLine(char **line) {
     return 0;
 }
 
-int VGAGetNextOutput(struct VGAOutput *vgaOuput) {
+int VGAGetNextOutput(VGAOutput *vgaOuput) {
 
     static char * line = NULL;
 
@@ -96,8 +96,8 @@ int VGAGetNextFrame(uint32_t *frameBuffer) {
     static int hCounter = 0;
     static int vCounter = 0;
 
-    struct VGAOutput lastOutput;
-    struct VGAOutput nextOutput;
+    VGAOutput lastOutput;
+    VGAOutput nextOutput;
 
     static int frameCounter = 0;
 

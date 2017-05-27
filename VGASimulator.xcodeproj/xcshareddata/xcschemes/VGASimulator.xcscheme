@@ -63,7 +63,7 @@
       </BuildableProductRunnable>
       <CommandLineArguments>
          <CommandLineArgument
-            argument = "-i /Users/pvieito/Dropbox/Developer/VGASimulator/Extra/Simulations/vga_output.txt"
+            argument = "-i /Users/pvieito/Dropbox/Developer/VGASimulator/Extra/Simulations/vga_output.vga"
             isEnabled = "YES">
          </CommandLineArgument>
          <CommandLineArgument

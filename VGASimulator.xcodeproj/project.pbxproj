@@ -12,12 +12,17 @@
 		AA3BCB2D1ED702D4003F152D /* VGASimulation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3BCB2A1ED702D4003F152D /* VGASimulation.swift */; };
 		AA3BCB2E1ED702EB003F152D /* VGASimulatorCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAA4D6781ED5B5B600263E25 /* VGASimulatorCore.framework */; };
 		AA3BCB2F1ED70318003F152D /* VGASimulatorKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA3BCB1B1ED702C1003F152D /* VGASimulatorKit.framework */; };
+		AA63441D1ED9B5F90026A63E /* VGASimulatorCore.c in Sources */ = {isa = PBXBuildFile; fileRef = AAA4D6821ED5B5D200263E25 /* VGASimulatorCore.c */; };
+		AA63441F1ED9BDD30026A63E /* VGASimulatorQL.qlgenerator in CopyFiles */ = {isa = PBXBuildFile; fileRef = AABCF3091ED9AB9D00ADA41E /* VGASimulatorQL.qlgenerator */; };
 		AA8D19821ECC7F8B008A9B19 /* CommandLineKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA8D197F1ECC7EB2008A9B19 /* CommandLineKit.framework */; };
 		AA8D19831ECC7F8B008A9B19 /* CoreGraphicsKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA8D19761ECC7EA2008A9B19 /* CoreGraphicsKit.framework */; };
 		AA8D19841ECC7F8B008A9B19 /* LoggerKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA8D19621ECC7E8B008A9B19 /* LoggerKit.framework */; };
 		AAA4D6641ED527EB00263E25 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8D19541ECC7E51008A9B19 /* main.swift */; };
 		AAA4D6841ED5B5D200263E25 /* VGASimulatorCore.c in Sources */ = {isa = PBXBuildFile; fileRef = AAA4D6821ED5B5D200263E25 /* VGASimulatorCore.c */; };
 		AAA4D6851ED5B5D200263E25 /* VGASimulatorCore.h in Headers */ = {isa = PBXBuildFile; fileRef = AAA4D6831ED5B5D200263E25 /* VGASimulatorCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AABCF30C1ED9AB9D00ADA41E /* GenerateThumbnailForURL.c in Sources */ = {isa = PBXBuildFile; fileRef = AABCF30B1ED9AB9D00ADA41E /* GenerateThumbnailForURL.c */; };
+		AABCF30E1ED9AB9D00ADA41E /* GeneratePreviewForURL.c in Sources */ = {isa = PBXBuildFile; fileRef = AABCF30D1ED9AB9D00ADA41E /* GeneratePreviewForURL.c */; };
+		AABCF3101ED9AB9D00ADA41E /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = AABCF30F1ED9AB9D00ADA41E /* main.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +64,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		AA63441E1ED9BDBA0026A63E /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "~/Library/QuickLook";
+			dstSubfolderSpec = 0;
+			files = (
+				AA63441F1ED9BDD30026A63E /* VGASimulatorQL.qlgenerator in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		AA8D194F1ECC7E51008A9B19 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -88,6 +103,11 @@
 		AAA4D6821ED5B5D200263E25 /* VGASimulatorCore.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = VGASimulatorCore.c; sourceTree = "<group>"; };
 		AAA4D6831ED5B5D200263E25 /* VGASimulatorCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VGASimulatorCore.h; sourceTree = "<group>"; };
 		AAA4D6881ED5B68700263E25 /* VGASimulator.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = VGASimulator.py; sourceTree = "<group>"; };
+		AABCF3091ED9AB9D00ADA41E /* VGASimulatorQL.qlgenerator */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VGASimulatorQL.qlgenerator; sourceTree = BUILT_PRODUCTS_DIR; };
+		AABCF30B1ED9AB9D00ADA41E /* GenerateThumbnailForURL.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = GenerateThumbnailForURL.c; sourceTree = "<group>"; };
+		AABCF30D1ED9AB9D00ADA41E /* GeneratePreviewForURL.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = GeneratePreviewForURL.c; sourceTree = "<group>"; };
+		AABCF30F1ED9AB9D00ADA41E /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		AABCF3111ED9AB9D00ADA41E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,15 +137,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		AABCF3051ED9AB9D00ADA41E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		AA3BCB1C1ED702C1003F152D /* VGASimulatorKit */ = {
 			isa = PBXGroup;
 			children = (
+				AA3BCB2A1ED702D4003F152D /* VGASimulation.swift */,
 				AA3BCB281ED702D4003F152D /* VGAMode.swift */,
 				AA3BCB291ED702D4003F152D /* VGAResolution.swift */,
-				AA3BCB2A1ED702D4003F152D /* VGASimulation.swift */,
 				AA3BCB1E1ED702C1003F152D /* Info.plist */,
 			);
 			path = VGASimulatorKit;
@@ -140,6 +167,7 @@
 				AAA4D6791ED5B5B600263E25 /* VGASimulatorCore */,
 				AA3BCB1C1ED702C1003F152D /* VGASimulatorKit */,
 				AA8D19531ECC7E51008A9B19 /* VGASimulator */,
+				AABCF30A1ED9AB9D00ADA41E /* VGASimulatorQL */,
 				AA8D19521ECC7E51008A9B19 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -150,6 +178,7 @@
 				AA8D19511ECC7E51008A9B19 /* VGASimulator */,
 				AAA4D6781ED5B5B600263E25 /* VGASimulatorCore.framework */,
 				AA3BCB1B1ED702C1003F152D /* VGASimulatorKit.framework */,
+				AABCF3091ED9AB9D00ADA41E /* VGASimulatorQL.qlgenerator */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -209,6 +238,17 @@
 			path = Legacy;
 			sourceTree = "<group>";
 		};
+		AABCF30A1ED9AB9D00ADA41E /* VGASimulatorQL */ = {
+			isa = PBXGroup;
+			children = (
+				AABCF30B1ED9AB9D00ADA41E /* GenerateThumbnailForURL.c */,
+				AABCF30D1ED9AB9D00ADA41E /* GeneratePreviewForURL.c */,
+				AABCF30F1ED9AB9D00ADA41E /* main.c */,
+				AABCF3111ED9AB9D00ADA41E /* Info.plist */,
+			);
+			path = VGASimulatorQL;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -224,6 +264,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				AAA4D6851ED5B5D200263E25 /* VGASimulatorCore.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AABCF3061ED9AB9D00ADA41E /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,6 +330,25 @@
 			productReference = AAA4D6781ED5B5B600263E25 /* VGASimulatorCore.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		AABCF3081ED9AB9D00ADA41E /* VGASimulatorQL */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AABCF3191ED9AB9D00ADA41E /* Build configuration list for PBXNativeTarget "VGASimulatorQL" */;
+			buildPhases = (
+				AABCF3041ED9AB9D00ADA41E /* Sources */,
+				AABCF3051ED9AB9D00ADA41E /* Frameworks */,
+				AABCF3061ED9AB9D00ADA41E /* Headers */,
+				AABCF3071ED9AB9D00ADA41E /* Resources */,
+				AA63441E1ED9BDBA0026A63E /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = VGASimulatorQL;
+			productName = VGASimulatorQL;
+			productReference = AABCF3091ED9AB9D00ADA41E /* VGASimulatorQL.qlgenerator */;
+			productType = "com.apple.product-type.bundle";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -309,6 +375,11 @@
 						CreatedOnToolsVersion = 8.3.2;
 						DevelopmentTeam = T7MC635YG5;
 						LastSwiftMigration = 0830;
+						ProvisioningStyle = Automatic;
+					};
+					AABCF3081ED9AB9D00ADA41E = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = T7MC635YG5;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -342,6 +413,7 @@
 				AA8D19501ECC7E51008A9B19 /* VGASimulator */,
 				AAA4D6771ED5B5B600263E25 /* VGASimulatorCore */,
 				AA3BCB1A1ED702C1003F152D /* VGASimulatorKit */,
+				AABCF3081ED9AB9D00ADA41E /* VGASimulatorQL */,
 			);
 		};
 /* End PBXProject section */
@@ -399,6 +471,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		AABCF3071ED9AB9D00ADA41E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -425,6 +504,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				AAA4D6841ED5B5D200263E25 /* VGASimulatorCore.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AABCF3041ED9AB9D00ADA41E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AABCF30C1ED9AB9D00ADA41E /* GenerateThumbnailForURL.c in Sources */,
+				AABCF30E1ED9AB9D00ADA41E /* GeneratePreviewForURL.c in Sources */,
+				AA63441D1ED9B5F90026A63E /* VGASimulatorCore.c in Sources */,
+				AABCF3101ED9AB9D00ADA41E /* main.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -669,6 +759,34 @@
 			};
 			name = Release;
 		};
+		AABCF3121ED9AB9D00ADA41E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = T7MC635YG5;
+				INFOPLIST_FILE = VGASimulatorQL/Info.plist;
+				INSTALL_PATH = /Library/QuickLook;
+				PRODUCT_BUNDLE_IDENTIFIER = com.pvieito.VGASimulatorQL;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = VGASimulatorCore;
+				WRAPPER_EXTENSION = qlgenerator;
+			};
+			name = Debug;
+		};
+		AABCF3131ED9AB9D00ADA41E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = T7MC635YG5;
+				INFOPLIST_FILE = VGASimulatorQL/Info.plist;
+				INSTALL_PATH = /Library/QuickLook;
+				PRODUCT_BUNDLE_IDENTIFIER = com.pvieito.VGASimulatorQL;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = VGASimulatorCore;
+				WRAPPER_EXTENSION = qlgenerator;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -704,6 +822,15 @@
 			buildConfigurations = (
 				AAA4D67E1ED5B5B600263E25 /* Debug */,
 				AAA4D67F1ED5B5B600263E25 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AABCF3191ED9AB9D00ADA41E /* Build configuration list for PBXNativeTarget "VGASimulatorQL" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AABCF3121ED9AB9D00ADA41E /* Debug */,
+				AABCF3131ED9AB9D00ADA41E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

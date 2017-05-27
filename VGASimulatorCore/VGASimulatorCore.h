@@ -1,13 +1,13 @@
 //
-//  vga_buffer.h
+//  VGASimulatorCore.h
 //  VGASimulator
 //
 //  Created by Pedro José Pereira Vieito on 24/5/17.
 //  Copyright © 2017 Pedro José Pereira Vieito. All rights reserved.
 //
 
-#ifndef vga_buffer_h
-#define vga_buffer_h
+#ifndef VGASimulatorCore_h
+#define VGASimulatorCore_h
 
 #include <stdint.h>
 #include <stdio.h>
@@ -18,7 +18,7 @@
 /**
  VGA Output struct.
  */
-struct VGAOutput {
+typedef struct {
     bool hSync;
     bool vSync;
     uint32_t red;
@@ -55,7 +55,7 @@ int VGAGetNextLine(char **line);
  @param vgaOuput VGAOuput struct where to save the next output.
  @return 0 on succes, -1 on error.
  */
-int VGAGetNextOutput(struct VGAOutput *vgaOuput);
+int VGAGetNextOutput(VGAOutput *vgaOuput);
 
 // Frame Options
 extern int VGAResolutionWidth;
@@ -71,4 +71,4 @@ extern int VGABackPorchY;
  */
 int VGAGetNextFrame(uint32_t *frameBuffer);
 
-#endif /* vga_buffer_h */
+#endif /* VGASimulatorCore_h */
