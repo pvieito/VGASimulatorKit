@@ -36,12 +36,19 @@ OSStatus GeneratePreviewForURL(void *thisInterface, QLPreviewRequestRef preview,
         int bufferSize = sizeof(uint32_t) * pixels;
         frameBuffer = (uint32_t *)malloc(bufferSize);
 
-        CFStringRef simulationPath = CFURLCopyPath(url);
-        const char* path = CFStringGetCStringPtr(simulationPath, kCFStringEncodingUTF8);
+        CFStringRef simulationPath = CFURLCopyFileSystemPath(url, kCFURLPOSIXPathStyle);
 
-        if (VGAOpenFile(path) != 0) {
+        char *pathBuffer = NULL;
+        int pathBufferSize = sizeof(char) * 10000;
+        pathBuffer = (char *)malloc(bufferSize);
+
+        CFStringGetCString(simulationPath, pathBuffer, pathBufferSize, kCFStringEncodingUTF8);
+
+        if (VGAOpenFile(pathBuffer) != 0) {
             return -1;
         }
+
+        free(pathBuffer);
 
         CGContextRef qlContext = QLPreviewRequestCreatePDFContext(preview, &rect, NULL, options);
 
