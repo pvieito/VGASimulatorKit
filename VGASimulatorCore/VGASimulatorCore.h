@@ -39,7 +39,7 @@ int VGAOpenFile(const char * path);
 
  @return 0 on success.
  */
-int VGACloseFile();
+int VGACloseFile(void);
 
 /**
  Gets the next line in the Simulation file.

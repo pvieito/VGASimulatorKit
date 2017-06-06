@@ -59,7 +59,7 @@ do {
 
         do {
             let imageFile = try frame.temporaryFile(format: .png)
-            NSWorkspace.shared().open(imageFile)
+            NSWorkspace.shared.open(imageFile)
         }
         catch {
             Logger.log(error: error)
