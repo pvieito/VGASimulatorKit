@@ -36,6 +36,27 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		AA0050EB1EE9805E00E691BD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AA25E3E21EE75494000B90A7 /* FoundationKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = AA912C1A1EE96CF2002DD639;
+			remoteInfo = FoundationKitWatch;
+		};
+		AA0050EE1EE9805E00E691BD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AA8D195D1ECC7E8B008A9B19 /* LoggerKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = AA912BE01EE96C56002DD639;
+			remoteInfo = LoggerKitWatch;
+		};
+		AA0050F01EE9806600E691BD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AA8D19491ECC7E51008A9B19 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AA8D19501ECC7E51008A9B19;
+			remoteInfo = VGASimulatorCommandLine;
+		};
 		AA25E3D51EE751F1000B90A7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = AA8D19491ECC7E51008A9B19 /* Project object */;
@@ -91,13 +112,6 @@
 			proxyType = 2;
 			remoteGlobalIDString = AA558AED1EC28E3F0099A8B0;
 			remoteInfo = CoreGraphicsKit;
-		};
-		AA8D19771ECC7EA2008A9B19 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = AA8D196E1ECC7EA2008A9B19 /* CoreGraphicsKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = AA7D0E5D1EC299D9005036CE;
-			remoteInfo = CoreGraphicsTool;
 		};
 		AA8D197E1ECC7EB2008A9B19 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -222,6 +236,7 @@
 			isa = PBXGroup;
 			children = (
 				AA25E3E71EE75495000B90A7 /* FoundationKit.framework */,
+				AA0050EC1EE9805E00E691BD /* FoundationKit.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -300,6 +315,7 @@
 			isa = PBXGroup;
 			children = (
 				AA8D19621ECC7E8B008A9B19 /* LoggerKit.framework */,
+				AA0050EF1EE9805E00E691BD /* LoggerKit.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -308,7 +324,6 @@
 			isa = PBXGroup;
 			children = (
 				AA8D19761ECC7EA2008A9B19 /* CoreGraphicsKit.framework */,
-				AA8D19781ECC7EA2008A9B19 /* CoreGraphicsTool */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -393,11 +408,12 @@
 			buildRules = (
 			);
 			dependencies = (
-				AA25E3D61EE751F1000B90A7 /* PBXTargetDependency */,
-				AA25E3DA1EE751F1000B90A7 /* PBXTargetDependency */,
+				AA25E40E1EE77884000B90A7 /* PBXTargetDependency */,
 				AA25E3F21EE754B7000B90A7 /* PBXTargetDependency */,
 				AA25E4031EE76839000B90A7 /* PBXTargetDependency */,
-				AA25E40E1EE77884000B90A7 /* PBXTargetDependency */,
+				AA25E3D61EE751F1000B90A7 /* PBXTargetDependency */,
+				AA25E3DA1EE751F1000B90A7 /* PBXTargetDependency */,
+				AA0050F11EE9806600E691BD /* PBXTargetDependency */,
 			);
 			name = VGASimulator;
 			productName = VGASimulator;
@@ -504,15 +520,29 @@
 			);
 			projectRoot = "";
 			targets = (
-				AA8D19501ECC7E51008A9B19 /* VGASimulatorCommandLine */,
 				AAA4D6771ED5B5B600263E25 /* VGASimulatorCore */,
 				AA3BCB1A1ED702C1003F152D /* VGASimulatorKit */,
 				AA3E86461EE64414005FFE88 /* VGASimulator */,
+				AA8D19501ECC7E51008A9B19 /* VGASimulatorCommandLine */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		AA0050EC1EE9805E00E691BD /* FoundationKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = FoundationKit.framework;
+			remoteRef = AA0050EB1EE9805E00E691BD /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		AA0050EF1EE9805E00E691BD /* LoggerKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = LoggerKit.framework;
+			remoteRef = AA0050EE1EE9805E00E691BD /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		AA25E3E71EE75495000B90A7 /* FoundationKit.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -532,13 +562,6 @@
 			fileType = wrapper.framework;
 			path = CoreGraphicsKit.framework;
 			remoteRef = AA8D19751ECC7EA2008A9B19 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		AA8D19781ECC7EA2008A9B19 /* CoreGraphicsTool */ = {
-			isa = PBXReferenceProxy;
-			fileType = "compiled.mach-o.executable";
-			path = CoreGraphicsTool;
-			remoteRef = AA8D19771ECC7EA2008A9B19 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		AA8D197F1ECC7EB2008A9B19 /* CommandLineKit.framework */ = {
@@ -616,6 +639,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		AA0050F11EE9806600E691BD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AA8D19501ECC7E51008A9B19 /* VGASimulatorCommandLine */;
+			targetProxy = AA0050F01EE9806600E691BD /* PBXContainerItemProxy */;
+		};
 		AA25E3D61EE751F1000B90A7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = AAA4D6771ED5B5B600263E25 /* VGASimulatorCore */;
