@@ -71,6 +71,10 @@ public class VGASimulation {
             throw SimulationError.fileNotAvailable
         }
     }
+    
+    deinit {
+        VGACloseFile()
+    }
 
     func nextFrameC() throws {
 
