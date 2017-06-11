@@ -43,7 +43,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ app: UIApplication, open inputURL: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
         // Reveal / import the document at the URL
-        guard let documentBrowserViewController = window?.rootViewController as? VGADocumentBrowserViewController else { return false }
+        guard let documentBrowserViewController = window?.rootViewController as? VGABrowserViewController else { return false }
 
         documentBrowserViewController.revealDocument(at: inputURL, shouldImport: true) { (revealedDocumentURL, error) in
             if let error = error {

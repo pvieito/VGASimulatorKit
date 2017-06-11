@@ -32,14 +32,14 @@ typedef struct {
  @param path Path to the simulation file.
  @return 0 on success.
  */
-int VGAOpenFile(const char * path);
+FILE* VGAOpenFile(const char * path);
 
 /**
  Closes the simulation file.
 
  @return 0 on success.
  */
-int VGACloseFile(void);
+int VGACloseFile(FILE *file);
 
 /**
  Gets the next line in the Simulation file.
@@ -47,7 +47,7 @@ int VGACloseFile(void);
  @param line Char pointer where to save the next line.
  @return -1 on error.
  */
-int VGAGetNextLine(char **line);
+int VGAGetNextLine(FILE *file, char **line);
 
 /**
  Gets the next VGA Ouput.
@@ -55,7 +55,7 @@ int VGAGetNextLine(char **line);
  @param vgaOuput VGAOuput struct where to save the next output.
  @return 0 on succes, -1 on error.
  */
-int VGAGetNextOutput(VGAOutput *vgaOuput);
+int VGAGetNextOutput(FILE *file, VGAOutput *vgaOuput);
 
 // Frame Options
 extern int VGAResolutionWidth;
@@ -69,6 +69,6 @@ extern int VGABackPorchY;
  @param frameBuffer Frame Buffer where to draw the simulation.
  @return Frame number on success, 0 for the last frame and -1 on error.
  */
-int VGAGetNextFrame(uint32_t *frameBuffer);
+int VGAGetNextFrame(FILE *file, uint32_t *frameBuffer);
 
 #endif /* VGASimulatorCore_h */

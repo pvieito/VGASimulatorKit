@@ -8,53 +8,53 @@
 
 #include "VGASimulatorCore.h"
 
-static FILE * filePointer;
-
 int VGAResolutionWidth = 1280;
 int VGAResolutionHeight = 1024;
 int VGABackPorchX = 318;
 int VGABackPorchY = 38;
 
-int VGAOpenFile(const char * path) {
-    filePointer = fopen(path, "r");
+FILE* _Nullable VGAOpenFile(const char * path) {
+    FILE *file = fopen(path, "r");
+    printf("0x0000000000000000 %p - Frame Opening %s\n", file, file->_p);
+    
+    if (file == NULL) {
+        return NULL;
+    }
 
-    if (filePointer == NULL) {
+    return file;
+}
+
+int VGACloseFile(FILE* file) {
+    if (file != NULL) {
+        fclose(file);
+        printf("0x0000000000000000 %p - Frame Closing\n", file);
+    }
+
+    file = NULL;
+    return 0;
+}
+
+int VGAGetNextLine(FILE *file, char **line) {
+
+    if (file == NULL) {
+        return -1;
+    }
+
+    size_t len = 0;
+    ssize_t readlen;
+
+    if ((readlen = getline(line, &len, file)) < 0) {
         return -1;
     }
 
     return 0;
 }
 
-int VGACloseFile() {
-    if (filePointer != NULL) {
-        fclose(filePointer);
-    }
+int VGAGetNextOutput(FILE *file, VGAOutput *vgaOuput) {
 
-    filePointer = NULL;
-    return 0;
-}
+    char * line = NULL;
 
-int VGAGetNextLine(char **line) {
-
-    if (filePointer == NULL) {
-        return -1;
-    }
-
-    static size_t len = 0;
-    static ssize_t readlen;
-
-    if ((readlen = getline(line, &len, filePointer)) < 0) {
-        return -1;
-    }
-
-    return 0;
-}
-
-int VGAGetNextOutput(VGAOutput *vgaOuput) {
-
-    static char * line = NULL;
-
-    if (VGAGetNextLine(&line) < 0) {
+    if (VGAGetNextLine(file, &line) < 0) {
         return -1;
     }
 
@@ -88,7 +88,7 @@ int VGAGetNextOutput(VGAOutput *vgaOuput) {
     return 0;
 }
 
-int VGAGetNextFrame(uint32_t *frameBuffer) {
+int VGAGetNextFrame(FILE *file, uint32_t *frameBuffer) {
 
     static int backPorchXCounter = 0;
     static int backPorchYCounter = 0;
@@ -103,11 +103,11 @@ int VGAGetNextFrame(uint32_t *frameBuffer) {
 
     bool showFrame = false;
 
-    if (filePointer == NULL) {
+    if (file == NULL) {
         return -1;
     }
 
-    while (VGAGetNextOutput(&nextOutput) >= 0) {
+    while (VGAGetNextOutput(file, &nextOutput) >= 0) {
 
         if (!lastOutput.hSync && nextOutput.hSync) {
             // New horizontal line
@@ -167,7 +167,7 @@ int VGAGetNextFrame(uint32_t *frameBuffer) {
         }
     }
 
-    VGACloseFile();
+    VGACloseFile(file);
 
     frameCounter = 0;
     return 0;

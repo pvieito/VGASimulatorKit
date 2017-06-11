@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AA0643D51EEC9BD800A40CE4 /* VGADocumentDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9410DA1EEC504900DC9A0B /* VGADocumentDelegate.swift */; };
+		AA0643D61EEC9D6400A40CE4 /* VGADocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3E864D1EE64414005FFE88 /* VGADocument.swift */; };
 		AA25E3D31EE751F1000B90A7 /* VGASimulatorCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAA4D6781ED5B5B600263E25 /* VGASimulatorCore.framework */; };
 		AA25E3D41EE751F1000B90A7 /* VGASimulatorCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AAA4D6781ED5B5B600263E25 /* VGASimulatorCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AA25E3D71EE751F1000B90A7 /* VGASimulatorKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA3BCB1B1ED702C1003F152D /* VGASimulatorKit.framework */; };
@@ -23,7 +25,7 @@
 		AA3BCB2E1ED702EB003F152D /* VGASimulatorCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAA4D6781ED5B5B600263E25 /* VGASimulatorCore.framework */; };
 		AA3BCB2F1ED70318003F152D /* VGASimulatorKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA3BCB1B1ED702C1003F152D /* VGASimulatorKit.framework */; };
 		AA3E864A1EE64414005FFE88 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3E86491EE64414005FFE88 /* AppDelegate.swift */; };
-		AA3E864C1EE64414005FFE88 /* VGAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3E864B1EE64414005FFE88 /* VGAViewController.swift */; };
+		AA3E864C1EE64414005FFE88 /* VGADocumentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3E864B1EE64414005FFE88 /* VGADocumentViewController.swift */; };
 		AA3E864E1EE64414005FFE88 /* VGADocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3E864D1EE64414005FFE88 /* VGADocument.swift */; };
 		AA3E86501EE64414005FFE88 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA3E864F1EE64414005FFE88 /* Assets.xcassets */; };
 		AA3E86531EE64414005FFE88 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA3E86511EE64414005FFE88 /* Main.storyboard */; };
@@ -37,9 +39,8 @@
 		AAA4D6841ED5B5D200263E25 /* VGASimulatorCore.c in Sources */ = {isa = PBXBuildFile; fileRef = AAA4D6821ED5B5D200263E25 /* VGASimulatorCore.c */; };
 		AAA4D6851ED5B5D200263E25 /* VGASimulatorCore.h in Headers */ = {isa = PBXBuildFile; fileRef = AAA4D6831ED5B5D200263E25 /* VGASimulatorCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AAB07B331EEB75E50039952C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB07B321EEB75E50039952C /* AppDelegate.swift */; };
-		AAB07B351EEB75E50039952C /* VGADocumentBrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB07B341EEB75E50039952C /* VGADocumentBrowserViewController.swift */; };
+		AAB07B351EEB75E50039952C /* VGABrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB07B341EEB75E50039952C /* VGABrowserViewController.swift */; };
 		AAB07B371EEB75E50039952C /* VGADocumentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB07B361EEB75E50039952C /* VGADocumentViewController.swift */; };
-		AAB07B391EEB75E50039952C /* VGADocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB07B381EEB75E50039952C /* VGADocument.swift */; };
 		AAB07B3C1EEB75E50039952C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AAB07B3A1EEB75E50039952C /* Main.storyboard */; };
 		AAB07B3E1EEB75E50039952C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAB07B3D1EEB75E50039952C /* Assets.xcassets */; };
 		AAB07B411EEB75E50039952C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AAB07B3F1EEB75E50039952C /* LaunchScreen.storyboard */; };
@@ -258,7 +259,7 @@
 		AA3E86421EE643BE005FFE88 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = VGASimulatorCommandLine/Info.plist; sourceTree = SOURCE_ROOT; };
 		AA3E86471EE64414005FFE88 /* VGASimulator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VGASimulator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA3E86491EE64414005FFE88 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		AA3E864B1EE64414005FFE88 /* VGAViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGAViewController.swift; sourceTree = "<group>"; };
+		AA3E864B1EE64414005FFE88 /* VGADocumentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGADocumentViewController.swift; sourceTree = "<group>"; };
 		AA3E864D1EE64414005FFE88 /* VGADocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGADocument.swift; sourceTree = "<group>"; };
 		AA3E864F1EE64414005FFE88 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AA3E86521EE64414005FFE88 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -280,9 +281,8 @@
 		AAA4D6881ED5B68700263E25 /* VGASimulator.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = VGASimulator.py; sourceTree = "<group>"; };
 		AAB07B301EEB75E50039952C /* VGASimulatorMobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VGASimulatorMobile.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAB07B321EEB75E50039952C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		AAB07B341EEB75E50039952C /* VGADocumentBrowserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGADocumentBrowserViewController.swift; sourceTree = "<group>"; };
+		AAB07B341EEB75E50039952C /* VGABrowserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGABrowserViewController.swift; sourceTree = "<group>"; };
 		AAB07B361EEB75E50039952C /* VGADocumentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGADocumentViewController.swift; sourceTree = "<group>"; };
-		AAB07B381EEB75E50039952C /* VGADocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGADocument.swift; sourceTree = "<group>"; };
 		AAB07B3B1EEB75E50039952C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AAB07B3D1EEB75E50039952C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AAB07B401EEB75E50039952C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -368,7 +368,8 @@
 			children = (
 				AA3E86491EE64414005FFE88 /* AppDelegate.swift */,
 				AA3E864D1EE64414005FFE88 /* VGADocument.swift */,
-				AA3E864B1EE64414005FFE88 /* VGAViewController.swift */,
+				AA9410DA1EEC504900DC9A0B /* VGADocumentDelegate.swift */,
+				AA3E864B1EE64414005FFE88 /* VGADocumentViewController.swift */,
 				AA3E864F1EE64414005FFE88 /* Assets.xcassets */,
 				AA3E86511EE64414005FFE88 /* Main.storyboard */,
 				AA3E86541EE64414005FFE88 /* Info.plist */,
@@ -473,12 +474,10 @@
 			isa = PBXGroup;
 			children = (
 				AAB07B321EEB75E50039952C /* AppDelegate.swift */,
-				AAB07B341EEB75E50039952C /* VGADocumentBrowserViewController.swift */,
+				AAB07B341EEB75E50039952C /* VGABrowserViewController.swift */,
 				AAB07B361EEB75E50039952C /* VGADocumentViewController.swift */,
 				AA9410DC1EEC51E700DC9A0B /* VGAFrameViewController.swift */,
 				AA9410DE1EEC558C00DC9A0B /* VGAFrameViewController.xib */,
-				AAB07B381EEB75E50039952C /* VGADocument.swift */,
-				AA9410DA1EEC504900DC9A0B /* VGADocumentDelegate.swift */,
 				AAB07B3A1EEB75E50039952C /* Main.storyboard */,
 				AAB07B3D1EEB75E50039952C /* Assets.xcassets */,
 				AAB07B3F1EEB75E50039952C /* LaunchScreen.storyboard */,
@@ -784,7 +783,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AA3E864C1EE64414005FFE88 /* VGAViewController.swift in Sources */,
+				AA0643D51EEC9BD800A40CE4 /* VGADocumentDelegate.swift in Sources */,
+				AA3E864C1EE64414005FFE88 /* VGADocumentViewController.swift in Sources */,
 				AA3E864A1EE64414005FFE88 /* AppDelegate.swift in Sources */,
 				AA3E864E1EE64414005FFE88 /* VGADocument.swift in Sources */,
 			);
@@ -812,9 +812,9 @@
 			files = (
 				AA9410DB1EEC504900DC9A0B /* VGADocumentDelegate.swift in Sources */,
 				AA9410DD1EEC51E700DC9A0B /* VGAFrameViewController.swift in Sources */,
-				AAB07B391EEB75E50039952C /* VGADocument.swift in Sources */,
+				AA0643D61EEC9D6400A40CE4 /* VGADocument.swift in Sources */,
 				AAB07B371EEB75E50039952C /* VGADocumentViewController.swift in Sources */,
-				AAB07B351EEB75E50039952C /* VGADocumentBrowserViewController.swift in Sources */,
+				AAB07B351EEB75E50039952C /* VGABrowserViewController.swift in Sources */,
 				AAB07B331EEB75E50039952C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class VGADocumentBrowserViewController: UIDocumentBrowserViewController {
+class VGABrowserViewController: UIDocumentBrowserViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +34,7 @@ class VGADocumentBrowserViewController: UIDocumentBrowserViewController {
     }
 }
 
-extension VGADocumentBrowserViewController: UIDocumentBrowserViewControllerDelegate {
+extension VGABrowserViewController: UIDocumentBrowserViewControllerDelegate {
     
     func documentBrowser(_ controller: UIDocumentBrowserViewController, didPickDocumentURLs documentURLs: [URL]) {
         guard let sourceURL = documentURLs.first else { return }
