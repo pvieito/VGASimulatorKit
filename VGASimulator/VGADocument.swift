@@ -49,7 +49,6 @@ class VGADocument: UIDocument {
                     
                     Logger.log(debug: "Simulation frame \(index) loaded...")
                     DispatchQueue.main.async {
-                        print(vgaSimulation.filePointer.hashValue)
                         self.delegate?.document(self, didLoad: frame, at: index)
                     }
                 }

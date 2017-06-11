@@ -53,10 +53,11 @@ public class VGASimulation {
     }
 
     private var frameBuffer: [UInt32]
-    public let filePointer: UnsafeMutablePointer<FILE>
-    let context: CGContext
+    private let filePointer: UnsafeMutablePointer<FILE>
+    private let context: CGContext
 
     public init(url: URL, mode: VGAMode = VGAMode.vesa1280x1024_60) throws {
+        
         self.inputSimulation = url
         self.mode = mode
 
@@ -67,7 +68,7 @@ public class VGASimulation {
         }
 
         self.context = context
-
+        
         guard let filePointer = VGAOpenFile(self.inputSimulation.path) else {
             throw SimulationError.fileNotAvailable
         }
@@ -79,28 +80,11 @@ public class VGASimulation {
         VGACloseFile(filePointer)
     }
 
-    func nextFrameC() throws {
-
-        guard !lastFrame else {
-            throw SimulationError.simulationComplete
-        }
-
-        let result = VGAGetNextFrame(filePointer, &frameBuffer)
-
-        if result == 0 {
-            lastFrame = true
-        }
-        else if result < 0 {
-            throw SimulationError.simulationComplete
-        }
-    }
-
     func nextFrame() throws {
 
         guard !lastFrame else {
             throw SimulationError.simulationComplete
         }
-        
         
         defer {
             print("\(Unmanaged.passUnretained(self).toOpaque()) 0x\(String(filePointer.hashValue, radix: 16, uppercase: true)) - Frame \(frameCounter - 2) \(frameBuffer.max() == 0 ? "(*)" : "")")
@@ -109,7 +93,7 @@ public class VGASimulation {
         var frameComplete = false
         
         while VGAGetNextOutput(filePointer, &nextOutput) >= 0 {
-            
+                        
             if !lastOutput.vSync && nextOutput.vSync {
 
                 // Complete frame
@@ -168,14 +152,11 @@ public class VGASimulation {
 
         lastFrame = true
     }
-}
-
-extension VGASimulation {
-
-    public var framesC: AnyIterator<CGImage> {
-
+    
+    public var frames: AnyIterator<CGImage> {
+        
         return AnyIterator<CGImage> {
-
+            
             do {
                 try self.nextFrame()
                 return self.context.makeImage()
@@ -185,8 +166,27 @@ extension VGASimulation {
             }
         }
     }
+}
 
-    public var frames: AnyIterator<CGImage> {
+extension VGASimulation {
+    
+    func nextFrameC() throws {
+        
+        guard !lastFrame else {
+            throw SimulationError.simulationComplete
+        }
+        
+        let result = VGAGetNextFrame(filePointer, &frameBuffer)
+        
+        if result == 0 {
+            lastFrame = true
+        }
+        else if result < 0 {
+            throw SimulationError.simulationComplete
+        }
+    }
+
+    public var framesC: AnyIterator<CGImage> {
 
         return AnyIterator<CGImage> {
 
