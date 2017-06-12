@@ -28,6 +28,8 @@ class VGADocument: UIDocument {
     
     private func openVGADocument(at url: URL) throws {
         do {
+            self.cancelProcessing = false
+            
             let vgaSimulation = try VGASimulation(url: url)
             self.vgaSimulation = vgaSimulation
             
