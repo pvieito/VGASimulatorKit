@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		AA0643D51EEC9BD800A40CE4 /* VGADocumentDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9410DA1EEC504900DC9A0B /* VGADocumentDelegate.swift */; };
 		AA0643D61EEC9D6400A40CE4 /* VGADocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3E864D1EE64414005FFE88 /* VGADocument.swift */; };
+		AA1001BD1F0944700072EE32 /* LoggerKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA8D19621ECC7E8B008A9B19 /* LoggerKit.framework */; };
+		AA1001BE1F0944700072EE32 /* LoggerKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AA8D19621ECC7E8B008A9B19 /* LoggerKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AA25E3D31EE751F1000B90A7 /* VGASimulatorCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAA4D6781ED5B5B600263E25 /* VGASimulatorCore.framework */; };
 		AA25E3D41EE751F1000B90A7 /* VGASimulatorCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AAA4D6781ED5B5B600263E25 /* VGASimulatorCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AA25E3D71EE751F1000B90A7 /* VGASimulatorKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA3BCB1B1ED702C1003F152D /* VGASimulatorKit.framework */; };
@@ -38,6 +40,8 @@
 		AAA4D6641ED527EB00263E25 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8D19541ECC7E51008A9B19 /* main.swift */; };
 		AAA4D6841ED5B5D200263E25 /* VGASimulatorCore.c in Sources */ = {isa = PBXBuildFile; fileRef = AAA4D6821ED5B5D200263E25 /* VGASimulatorCore.c */; };
 		AAA4D6851ED5B5D200263E25 /* VGASimulatorCore.h in Headers */ = {isa = PBXBuildFile; fileRef = AAA4D6831ED5B5D200263E25 /* VGASimulatorCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AAAD3E191F0942CE008F6189 /* ThumbnailProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAD3E181F0942CE008F6189 /* ThumbnailProvider.swift */; };
+		AAAD3E1D1F0942CE008F6189 /* VGASimulatorMobileThumbnailExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = AAAD3E161F0942CD008F6189 /* VGASimulatorMobileThumbnailExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		AAB07B331EEB75E50039952C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB07B321EEB75E50039952C /* AppDelegate.swift */; };
 		AAB07B351EEB75E50039952C /* VGABrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB07B341EEB75E50039952C /* VGABrowserViewController.swift */; };
 		AAB07B371EEB75E50039952C /* VGADocumentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB07B361EEB75E50039952C /* VGADocumentViewController.swift */; };
@@ -52,8 +56,6 @@
 		AAB07B671EEB7C9B0039952C /* FoundationKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AA25E3E71EE75495000B90A7 /* FoundationKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AAB07B6A1EEB7C9B0039952C /* CoreGraphicsKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA8D19761ECC7EA2008A9B19 /* CoreGraphicsKit.framework */; };
 		AAB07B6B1EEB7C9B0039952C /* CoreGraphicsKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AA8D19761ECC7EA2008A9B19 /* CoreGraphicsKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		AAB07B6E1EEB7C9B0039952C /* LoggerKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA8D19621ECC7E8B008A9B19 /* LoggerKit.framework */; };
-		AAB07B6F1EEB7C9B0039952C /* LoggerKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AA8D19621ECC7E8B008A9B19 /* LoggerKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +86,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = AAA4D6771ED5B5B600263E25;
 			remoteInfo = VGASimulatorCore;
+		};
+		AA1001BF1F0944700072EE32 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AA8D195D1ECC7E8B008A9B19 /* LoggerKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = AABBD99C1E5761BD00AE5B46;
+			remoteInfo = LoggerKit;
 		};
 		AA25E3D51EE751F1000B90A7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -148,6 +157,13 @@
 			remoteGlobalIDString = 5D06884319674D7D00BBFAAC;
 			remoteInfo = CommandLineKit;
 		};
+		AAAD3E1B1F0942CE008F6189 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AA8D19491ECC7E51008A9B19 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AAAD3E151F0942CD008F6189;
+			remoteInfo = VGASimulatorMobileThumbnailExtension;
+		};
 		AAB07B601EEB7C9B0039952C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = AA8D19491ECC7E51008A9B19 /* Project object */;
@@ -175,13 +191,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = AA558AEC1EC28E3F0099A8B0;
 			remoteInfo = CoreGraphicsKit;
-		};
-		AAB07B701EEB7C9B0039952C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = AA8D195D1ECC7E8B008A9B19 /* LoggerKit.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = AABBD99C1E5761BD00AE5B46;
-			remoteInfo = LoggerKit;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -217,6 +226,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
+				AAAD3E1D1F0942CE008F6189 /* VGASimulatorMobileThumbnailExtension.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -236,7 +246,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				AAB07B6F1EEB7C9B0039952C /* LoggerKit.framework in Embed Frameworks */,
+				AA1001BE1F0944700072EE32 /* LoggerKit.framework in Embed Frameworks */,
 				AAB07B5F1EEB7C9B0039952C /* VGASimulatorCore.framework in Embed Frameworks */,
 				AAB07B671EEB7C9B0039952C /* FoundationKit.framework in Embed Frameworks */,
 				AAB07B631EEB7C9B0039952C /* VGASimulatorKit.framework in Embed Frameworks */,
@@ -279,6 +289,9 @@
 		AAA4D6821ED5B5D200263E25 /* VGASimulatorCore.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = VGASimulatorCore.c; sourceTree = "<group>"; };
 		AAA4D6831ED5B5D200263E25 /* VGASimulatorCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VGASimulatorCore.h; sourceTree = "<group>"; };
 		AAA4D6881ED5B68700263E25 /* VGASimulator.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = VGASimulator.py; sourceTree = "<group>"; };
+		AAAD3E161F0942CD008F6189 /* VGASimulatorMobileThumbnailExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = VGASimulatorMobileThumbnailExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		AAAD3E181F0942CE008F6189 /* ThumbnailProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbnailProvider.swift; sourceTree = "<group>"; };
+		AAAD3E1A1F0942CE008F6189 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AAB07B301EEB75E50039952C /* VGASimulatorMobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VGASimulatorMobile.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAB07B321EEB75E50039952C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AAB07B341EEB75E50039952C /* VGABrowserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGABrowserViewController.swift; sourceTree = "<group>"; };
@@ -328,11 +341,18 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		AAAD3E131F0942CD008F6189 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		AAB07B2D1EEB75E50039952C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AAB07B6E1EEB7C9B0039952C /* LoggerKit.framework in Frameworks */,
+				AA1001BD1F0944700072EE32 /* LoggerKit.framework in Frameworks */,
 				AAB07B5E1EEB7C9B0039952C /* VGASimulatorCore.framework in Frameworks */,
 				AAB07B661EEB7C9B0039952C /* FoundationKit.framework in Frameworks */,
 				AAB07B621EEB7C9B0039952C /* VGASimulatorKit.framework in Frameworks */,
@@ -398,6 +418,7 @@
 				AA3BCB1C1ED702C1003F152D /* VGASimulatorKit */,
 				AA3E86481EE64414005FFE88 /* VGASimulator */,
 				AAB07B311EEB75E50039952C /* VGASimulatorMobile */,
+				AAAD3E171F0942CE008F6189 /* VGASimulatorMobileThumbnailExtension */,
 				AA8D19531ECC7E51008A9B19 /* VGASimulatorCommandLine */,
 				AA3E865E1EE64431005FFE88 /* Frameworks */,
 				AA8D19521ECC7E51008A9B19 /* Products */,
@@ -412,6 +433,7 @@
 				AA3BCB1B1ED702C1003F152D /* VGASimulatorKit.framework */,
 				AA3E86471EE64414005FFE88 /* VGASimulator.app */,
 				AAB07B301EEB75E50039952C /* VGASimulatorMobile.app */,
+				AAAD3E161F0942CD008F6189 /* VGASimulatorMobileThumbnailExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -468,6 +490,15 @@
 				AA3BCB0A1ED6EEDD003F152D /* VGASimulator.swift */,
 			);
 			path = Legacy;
+			sourceTree = "<group>";
+		};
+		AAAD3E171F0942CE008F6189 /* VGASimulatorMobileThumbnailExtension */ = {
+			isa = PBXGroup;
+			children = (
+				AAAD3E181F0942CE008F6189 /* ThumbnailProvider.swift */,
+				AAAD3E1A1F0942CE008F6189 /* Info.plist */,
+			);
+			path = VGASimulatorMobileThumbnailExtension;
 			sourceTree = "<group>";
 		};
 		AAB07B311EEB75E50039952C /* VGASimulatorMobile */ = {
@@ -586,6 +617,23 @@
 			productReference = AAA4D6781ED5B5B600263E25 /* VGASimulatorCore.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		AAAD3E151F0942CD008F6189 /* VGASimulatorMobileThumbnailExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AAAD3E1E1F0942CE008F6189 /* Build configuration list for PBXNativeTarget "VGASimulatorMobileThumbnailExtension" */;
+			buildPhases = (
+				AAAD3E121F0942CD008F6189 /* Sources */,
+				AAAD3E131F0942CD008F6189 /* Frameworks */,
+				AAAD3E141F0942CD008F6189 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = VGASimulatorMobileThumbnailExtension;
+			productName = VGASimulatorMobileThumbnailExtension;
+			productReference = AAAD3E161F0942CD008F6189 /* VGASimulatorMobileThumbnailExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		AAB07B2F1EEB75E50039952C /* VGASimulatorMobile */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = AAB07B481EEB75E50039952C /* Build configuration list for PBXNativeTarget "VGASimulatorMobile" */;
@@ -599,11 +647,12 @@
 			buildRules = (
 			);
 			dependencies = (
-				AAB07B711EEB7C9B0039952C /* PBXTargetDependency */,
 				AAB07B6D1EEB7C9B0039952C /* PBXTargetDependency */,
 				AAB07B691EEB7C9B0039952C /* PBXTargetDependency */,
 				AAB07B611EEB7C9B0039952C /* PBXTargetDependency */,
 				AAB07B651EEB7C9B0039952C /* PBXTargetDependency */,
+				AAAD3E1C1F0942CE008F6189 /* PBXTargetDependency */,
+				AA1001C01F0944700072EE32 /* PBXTargetDependency */,
 			);
 			name = VGASimulatorMobile;
 			productName = VGASimulatorMobile;
@@ -639,6 +688,10 @@
 					AAA4D6771ED5B5B600263E25 = {
 						CreatedOnToolsVersion = 8.3.2;
 						LastSwiftMigration = 0900;
+					};
+					AAAD3E151F0942CD008F6189 = {
+						CreatedOnToolsVersion = 9.0;
+						DevelopmentTeam = T7MC635YG5;
 					};
 					AAB07B2F1EEB75E50039952C = {
 						CreatedOnToolsVersion = 9.0;
@@ -679,9 +732,10 @@
 			targets = (
 				AAA4D6771ED5B5B600263E25 /* VGASimulatorCore */,
 				AA3BCB1A1ED702C1003F152D /* VGASimulatorKit */,
+				AA8D19501ECC7E51008A9B19 /* VGASimulatorCommandLine */,
 				AA3E86461EE64414005FFE88 /* VGASimulator */,
 				AAB07B2F1EEB75E50039952C /* VGASimulatorMobile */,
-				AA8D19501ECC7E51008A9B19 /* VGASimulatorCommandLine */,
+				AAAD3E151F0942CD008F6189 /* VGASimulatorMobileThumbnailExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -755,6 +809,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		AAAD3E141F0942CD008F6189 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		AAB07B2E1EEB75E50039952C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -806,6 +867,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		AAAD3E121F0942CD008F6189 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AAAD3E191F0942CE008F6189 /* ThumbnailProvider.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		AAB07B2C1EEB75E50039952C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -832,6 +901,11 @@
 			target = AAA4D6771ED5B5B600263E25 /* VGASimulatorCore */;
 			targetProxy = AA0554A91EEB7DF600F7BB1D /* PBXContainerItemProxy */;
 		};
+		AA1001C01F0944700072EE32 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = LoggerKit;
+			targetProxy = AA1001BF1F0944700072EE32 /* PBXContainerItemProxy */;
+		};
 		AA25E3D61EE751F1000B90A7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = AAA4D6771ED5B5B600263E25 /* VGASimulatorCore */;
@@ -857,6 +931,11 @@
 			name = LoggerKit;
 			targetProxy = AA25E40D1EE77884000B90A7 /* PBXContainerItemProxy */;
 		};
+		AAAD3E1C1F0942CE008F6189 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AAAD3E151F0942CD008F6189 /* VGASimulatorMobileThumbnailExtension */;
+			targetProxy = AAAD3E1B1F0942CE008F6189 /* PBXContainerItemProxy */;
+		};
 		AAB07B611EEB7C9B0039952C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = AAA4D6771ED5B5B600263E25 /* VGASimulatorCore */;
@@ -876,11 +955,6 @@
 			isa = PBXTargetDependency;
 			name = CoreGraphicsKit;
 			targetProxy = AAB07B6C1EEB7C9B0039952C /* PBXContainerItemProxy */;
-		};
-		AAB07B711EEB7C9B0039952C /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = LoggerKit;
-			targetProxy = AAB07B701EEB7C9B0039952C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1213,6 +1287,49 @@
 			};
 			name = Release;
 		};
+		AAAD3E1F1F0942CE008F6189 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = T7MC635YG5;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = VGASimulatorMobileThumbnailExtension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.pvieito.VGASimulatorMobile.VGASimulatorMobileThumbnailExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		AAAD3E201F0942CE008F6189 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = T7MC635YG5;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = VGASimulatorMobileThumbnailExtension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.pvieito.VGASimulatorMobile.VGASimulatorMobileThumbnailExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 		AAB07B431EEB75E50039952C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1302,6 +1419,15 @@
 			buildConfigurations = (
 				AAA4D67E1ED5B5B600263E25 /* Debug */,
 				AAA4D67F1ED5B5B600263E25 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AAAD3E1E1F0942CE008F6189 /* Build configuration list for PBXNativeTarget "VGASimulatorMobileThumbnailExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AAAD3E1F1F0942CE008F6189 /* Debug */,
+				AAAD3E201F0942CE008F6189 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -45,7 +45,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Reveal / import the document at the URL
         guard let documentBrowserViewController = window?.rootViewController as? VGABrowserViewController else { return false }
 
-        documentBrowserViewController.revealDocument(at: inputURL, shouldImport: true) { (revealedDocumentURL, error) in
+        documentBrowserViewController.revealDocument(at: inputURL, importIfNeeded: true) { (revealedDocumentURL, error) in
             if let error = error {
                 // Handle the error appropriately
                 print("Failed to reveal the document at URL \(inputURL) with error: '\(error)'")
