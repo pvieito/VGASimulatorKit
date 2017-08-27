@@ -57,7 +57,7 @@ public class VGASimulation {
     private let context: CGContext
 
     public init(url: URL, mode: VGAMode = VGAMode.vesa1280x1024_60) throws {
-        
+
         self.inputSimulation = url
         self.mode = mode
 

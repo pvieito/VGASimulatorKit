@@ -15,7 +15,6 @@ int VGABackPorchY = 38;
 
 FILE* _Nullable VGAOpenFile(const char * path) {
     FILE *file = fopen(path, "r");
-    printf("0x0000000000000000 %p - Frame Opening %s\n", file, file->_p);
     
     if (file == NULL) {
         return NULL;
@@ -27,7 +26,6 @@ FILE* _Nullable VGAOpenFile(const char * path) {
 int VGACloseFile(FILE* file) {
     if (file != NULL) {
         fclose(file);
-        printf("0x0000000000000000 %p - Frame Closing\n", file);
     }
 
     file = NULL;

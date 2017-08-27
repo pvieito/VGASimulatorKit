@@ -18,7 +18,7 @@ import VGASimulatorKit
 #endif
 
 class VGADocument: UIDocument {
-
+    
     public weak var delegate: VGADocumentDelegate?
     
     var vgaSimulation: VGASimulation?
