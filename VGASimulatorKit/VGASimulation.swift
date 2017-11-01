@@ -86,10 +86,6 @@ public class VGASimulation {
             throw SimulationError.simulationComplete
         }
         
-        defer {
-            print("\(Unmanaged.passUnretained(self).toOpaque()) 0x\(String(filePointer.hashValue, radix: 16, uppercase: true)) - Frame \(frameCounter - 2) \(frameBuffer.max() == 0 ? "(*)" : "")")
-        }
-
         var frameComplete = false
         
         while VGAGetNextOutput(filePointer, &nextOutput) >= 0 {

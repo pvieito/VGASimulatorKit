@@ -90,6 +90,27 @@
 			remoteGlobalIDString = AABBD99C1E5761BD00AE5B46;
 			remoteInfo = LoggerKit;
 		};
+		AA13DD601FA94CF200DCBE20 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AA8D19491ECC7E51008A9B19 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AAA4D6771ED5B5B600263E25;
+			remoteInfo = VGASimulatorCore;
+		};
+		AA13DD621FA94CF200DCBE20 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AA8D19491ECC7E51008A9B19 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AA3BCB1A1ED702C1003F152D;
+			remoteInfo = VGASimulatorKit;
+		};
+		AA13DD671FA94CF200DCBE20 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AA25E3E21EE75494000B90A7 /* FoundationKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = AAD31D251F883C8800C056DD;
+			remoteInfo = FoundationKitTests;
+		};
 		AA25E3D51EE751F1000B90A7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = AA8D19491ECC7E51008A9B19 /* Project object */;
@@ -367,6 +388,7 @@
 			children = (
 				AA25E3E71EE75495000B90A7 /* FoundationKit.framework */,
 				AA0050EC1EE9805E00E691BD /* FoundationKit.framework */,
+				AA13DD681FA94CF200DCBE20 /* FoundationKitTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -591,6 +613,8 @@
 			buildRules = (
 			);
 			dependencies = (
+				AA13DD611FA94CF200DCBE20 /* PBXTargetDependency */,
+				AA13DD631FA94CF200DCBE20 /* PBXTargetDependency */,
 			);
 			name = VGASimulatorCommandLine;
 			productName = VGASimulator;
@@ -753,6 +777,13 @@
 			remoteRef = AA0050EE1EE9805E00E691BD /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		AA13DD681FA94CF200DCBE20 /* FoundationKitTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = FoundationKitTests.xctest;
+			remoteRef = AA13DD671FA94CF200DCBE20 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		AA25E3E71EE75495000B90A7 /* FoundationKit.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -898,6 +929,16 @@
 			isa = PBXTargetDependency;
 			name = LoggerKit;
 			targetProxy = AA1001BF1F0944700072EE32 /* PBXContainerItemProxy */;
+		};
+		AA13DD611FA94CF200DCBE20 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AAA4D6771ED5B5B600263E25 /* VGASimulatorCore */;
+			targetProxy = AA13DD601FA94CF200DCBE20 /* PBXContainerItemProxy */;
+		};
+		AA13DD631FA94CF200DCBE20 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AA3BCB1A1ED702C1003F152D /* VGASimulatorKit */;
+			targetProxy = AA13DD621FA94CF200DCBE20 /* PBXContainerItemProxy */;
 		};
 		AA25E3D61EE751F1000B90A7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
