@@ -40,7 +40,7 @@ int VGAGetNextLine(FILE *file, char **line) {
 
     size_t len = 0;
     ssize_t readlen;
-
+    
     if ((readlen = getline(line, &len, file)) < 0) {
         return -1;
     }
@@ -82,6 +82,8 @@ int VGAGetNextOutput(FILE *file, VGAOutput *vgaOuput) {
         pch = strtok(NULL, " ");
         index++;
     }
+    
+    free(line);
 
     return 0;
 }
@@ -94,10 +96,10 @@ int VGAGetNextFrame(FILE *file, uint32_t *frameBuffer) {
     static int hCounter = 0;
     static int vCounter = 0;
 
-    VGAOutput lastOutput;
-    VGAOutput nextOutput;
-
     static int frameCounter = 0;
+
+    static VGAOutput lastOutput = { 0 };
+    static VGAOutput nextOutput = { 0 };
 
     bool showFrame = false;
 

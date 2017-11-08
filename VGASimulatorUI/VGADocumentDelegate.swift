@@ -9,7 +9,7 @@
 import Foundation
 import CoreGraphics
 
-protocol VGADocumentDelegate: class {
+public protocol VGADocumentDelegate: class {
     func documentDidStartProcessing()
     func document(_ document: VGADocument, didLoad frame: CGImage, at index: Int)
     func documentDidEndProcessing()

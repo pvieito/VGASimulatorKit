@@ -12,12 +12,12 @@ import VGASimulatorKit
 
 #if os(macOS)
     import Cocoa
-    typealias UIDocument = NSDocument
+    public typealias UIDocument = NSDocument
 #else
     import UIKit
 #endif
 
-class VGADocument: UIDocument {
+public class VGADocument: UIDocument {
     
     public weak var delegate: VGADocumentDelegate?
     
@@ -26,7 +26,7 @@ class VGADocument: UIDocument {
     var processingQueue = DispatchQueue(label: "com.pvieito.VGASimulator.frameProcessing")
     var availableFrames: [CGImage] = []
     
-    private func openVGADocument(at url: URL) throws {
+    internal func openVGADocument(at url: URL) throws {
         do {
             self.cancelProcessing = false
             
@@ -75,11 +75,11 @@ class VGADocument: UIDocument {
 #if os(iOS)
     extension VGADocument {
         
-        override func read(from url: URL) throws {
+        public override func read(from url: URL) throws {
             try self.openVGADocument(at: url)
         }
         
-        override func close(completionHandler: ((Bool) -> Void)? = nil) {
+        public override func close(completionHandler: ((Bool) -> Void)? = nil) {
             self.closeVGADocument()
             super.close(completionHandler: completionHandler)
         }
@@ -89,24 +89,23 @@ class VGADocument: UIDocument {
 #if os(macOS)
     extension VGADocument {
         
-        override func read(from url: URL, ofType typeName: String) throws {
+        public override func read(from url: URL, ofType typeName: String) throws {
             try self.openVGADocument(at: url)
         }
         
-        override func close() {
+        public override func close() {
             self.closeVGADocument()
             super.close()
         }
         
-        override func makeWindowControllers() {
+        public override func makeWindowControllers() {
             // Returns the Storyboard that contains your Document window.
             let storyboard = NSStoryboard(name: NSStoryboard.Name("Main"), bundle: nil)
             let windowController = storyboard.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier("VGADocumentWindowController")) as! NSWindowController
             self.addWindowController(windowController)
             
-            let documentViewController = windowController.contentViewController as? VGADocumentViewController
-            documentViewController?.representedObject = vgaSimulation
-            self.delegate = documentViewController
+            let simulatorViewController = windowController.contentViewController as? VGASimulationViewController
+            self.delegate = simulatorViewController
         }
     }
 #endif

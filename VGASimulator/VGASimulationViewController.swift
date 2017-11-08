@@ -11,14 +11,11 @@ import LoggerKit
 import CoreGraphicsKit
 import VGASimulatorKit
 
-class VGADocumentViewController: NSViewController {
+class VGASimulationViewController: NSViewController {
 
     @IBOutlet weak var loadingFrameLabel: NSTextField!
     @IBOutlet weak var activityIndicatorView: NSProgressIndicator!
     
-    var cancelProcessing = false
-    var processingQueue = DispatchQueue(label: "com.pvieito.VGASimulator.frameProcessing")
-
     override func viewDidAppear() {
         super.viewDidAppear()
 
@@ -41,7 +38,7 @@ class VGADocumentViewController: NSViewController {
     }
 }
 
-extension VGADocumentViewController: VGADocumentDelegate {
+extension VGASimulationViewController: VGADocumentDelegate {
     
     func documentDidStartProcessing() {
         self.loadingFrameLabel.stringValue = "Loading frame 0..."

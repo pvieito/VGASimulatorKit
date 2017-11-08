@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.17" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -33,7 +33,7 @@
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" translucent="NO" prompted="NO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="RpG-I4-s3m">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                     </navigationBar>
@@ -45,10 +45,10 @@
             </objects>
             <point key="canvasLocation" x="890" y="654"/>
         </scene>
-        <!--Document View Controller-->
+        <!--Simulation View Controller-->
         <scene sceneID="r3E-ow-r05">
             <objects>
-                <viewController id="boj-Sw-nVz" customClass="VGADocumentViewController" customModule="VGASimulatorMobile" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="boj-Sw-nVz" customClass="VGASimulationViewController" customModule="VGASimulatorUI" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="2op-TP-5RC"/>
                         <viewControllerLayoutGuide type="bottom" id="HhR-Q9-9ak"/>
@@ -56,28 +56,15 @@
                     <view key="view" contentMode="scaleToFill" id="pMa-th-cfT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="hof-fn-xyq">
-                                <rect key="frame" x="177.5" y="291.5" width="20" height="20"/>
-                                <color key="color" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </activityIndicatorView>
-                        </subviews>
                         <color key="backgroundColor" white="0.20000000000000001" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="hof-fn-xyq" firstAttribute="centerX" secondItem="pMa-th-cfT" secondAttribute="centerX" id="PKZ-Wu-0ed"/>
-                            <constraint firstItem="hof-fn-xyq" firstAttribute="centerY" secondItem="pMa-th-cfT" secondAttribute="centerY" id="WUz-2Y-5aG"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="lbo-Ya-a2o">
                         <barButtonItem key="leftBarButtonItem" style="done" systemItem="done" id="uhO-mJ-T84">
                             <connections>
-                                <action selector="dismissDocumentViewController" destination="boj-Sw-nVz" id="fFo-yK-OD5"/>
+                                <action selector="dismiss" destination="boj-Sw-nVz" id="WRr-g2-z7F"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <connections>
-                        <outlet property="activityIndicatorView" destination="hof-fn-xyq" id="alY-eB-nXy"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KZ8-na-L76" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

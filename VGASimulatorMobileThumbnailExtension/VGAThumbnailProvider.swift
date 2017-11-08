@@ -12,7 +12,7 @@ import CoreGraphicsKit
 import LoggerKit
 import VGASimulatorKit
 
-class ThumbnailProvider: QLThumbnailProvider {
+class VGAThumbnailProvider: QLThumbnailProvider {
     
     override func provideThumbnail(for request: QLFileThumbnailRequest, _ handler: @escaping (QLThumbnailReply?, Error?) -> Void) {
         
@@ -28,15 +28,15 @@ class ThumbnailProvider: QLThumbnailProvider {
                 
                 Logger.log(debug: "Rendering first VGASimulation frame...")
                 
-                guard let nextFrame = simulation.frames.next() else {
+                guard let thumbnailFrame = simulation.frames.next() else {
                     Logger.log(error: "Error obtaining first VGASimulation frame.")
                     return false
                 }
                 
                 Logger.log(debug: "Drawing frame in CGContext...")
                 let contextRect = CGRect(origin: .zero, size: request.maximumSize.scaled(by: UIScreen.main.scale))
-                context.draw(nextFrame, in: contextRect)
-                
+                context.draw(thumbnailFrame, in: contextRect)
+
                 Logger.log(debug: "Returning CGContext...")
                 return true
             }

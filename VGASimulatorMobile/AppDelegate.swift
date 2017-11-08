@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import LoggerKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -48,7 +49,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         documentBrowserViewController.revealDocument(at: inputURL, importIfNeeded: true) { (revealedDocumentURL, error) in
             if let error = error {
                 // Handle the error appropriately
-                print("Failed to reveal the document at URL \(inputURL) with error: '\(error)'")
+                Logger.log(error: "Failed to reveal the document at URL \(inputURL) with error. \(error)")
                 return
             }
             

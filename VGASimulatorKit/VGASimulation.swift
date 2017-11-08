@@ -80,7 +80,14 @@ public class VGASimulation {
         VGACloseFile(filePointer)
     }
 
-    func nextFrame() throws {
+    public var frames: AnyIterator<CGImage> {
+        return self.framesC
+    }
+}
+
+extension VGASimulation {
+
+    func nextFrameS() throws {
 
         guard !lastFrame else {
             throw SimulationError.simulationComplete
@@ -149,12 +156,12 @@ public class VGASimulation {
         lastFrame = true
     }
     
-    public var frames: AnyIterator<CGImage> {
+    public var framesS: AnyIterator<CGImage> {
         
         return AnyIterator<CGImage> {
             
             do {
-                try self.nextFrame()
+                try self.nextFrameS()
                 return self.context.makeImage()
             }
             catch {
@@ -187,7 +194,7 @@ extension VGASimulation {
         return AnyIterator<CGImage> {
 
             do {
-                try self.nextFrame()
+                try self.nextFrameC()
                 return self.context.makeImage()
             }
             catch {

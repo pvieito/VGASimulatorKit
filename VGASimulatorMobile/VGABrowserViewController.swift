@@ -7,28 +7,29 @@
 //
 
 import UIKit
+import VGASimulatorUI
 
 class VGABrowserViewController: UIDocumentBrowserViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        delegate = self
+        self.delegate = self
         
-        allowsDocumentCreation = false
-        allowsPickingMultipleItems = false
+        self.allowsDocumentCreation = false
+        self.allowsPickingMultipleItems = false
                 
         // Update the style of the UIDocumentBrowserViewController
-        browserUserInterfaceStyle = .dark
-        view.tintColor = .orange
+        self.browserUserInterfaceStyle = .dark
+        self.view.tintColor = .orange
     }
     
     func presentDocument(at documentURL: URL) {
         
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
         let navigationViewController = storyBoard.instantiateViewController(withIdentifier: "VGANavigationViewController") as! UINavigationController
-        let documentViewController = navigationViewController.childViewControllers.first as? VGADocumentViewController
-        documentViewController?.document = VGADocument(fileURL: documentURL)
+        let simulationViewController = navigationViewController.childViewControllers.first as! VGASimulationViewController
+        simulationViewController.loadSimulationAsDocument(at: documentURL)
         
         present(navigationViewController, animated: true, completion: nil)
     }
