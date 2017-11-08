@@ -60,14 +60,14 @@ open class VGASimulationViewController: UIViewController {
         })
     }
     
-    public func loadSimulation(at url: URL) throws {
+    public func loadSimulation(at url: URL, frameLimit: Int) throws {
         
         guard self.extensionContext != nil else {
             fatalError("Use loadSimulationAsDocument(at:) instead.")
         }
         
         self.document = VGADocument(fileURL: url)
-        try self.document?.openVGADocument(at: url)
+        try self.document?.openVGADocument(at: url, frameLimit: frameLimit)
     }
     
     @IBAction func dismiss() {

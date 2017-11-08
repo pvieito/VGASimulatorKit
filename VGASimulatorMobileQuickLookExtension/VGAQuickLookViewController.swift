@@ -20,7 +20,7 @@ class VGAQuickLookViewController: VGASimulationViewController, QLPreviewingContr
      */
     func preparePreviewOfFile(at url: URL, completionHandler handler: @escaping (Error?) -> Void) {
         do {
-            try self.loadSimulation(at: url)
+            try self.loadSimulation(at: url, frameLimit: 1)
             handler(nil)
         }
         catch {

@@ -8,12 +8,13 @@
 
 #include "VGASimulatorCore.h"
 
-int VGAResolutionWidth = 1280;
-int VGAResolutionHeight = 1024;
-int VGABackPorchX = 318;
-int VGABackPorchY = 38;
+const int VGAResolutionWidth = 1280;
+const int VGAResolutionHeight = 1024;
+const int VGABackPorchX = 318;
+const int VGABackPorchY = 38;
 
 FILE* _Nullable VGAOpenFile(const char * path) {
+        
     FILE *file = fopen(path, "r");
     
     if (file == NULL) {
@@ -24,6 +25,7 @@ FILE* _Nullable VGAOpenFile(const char * path) {
 }
 
 int VGACloseFile(FILE* file) {
+    
     if (file != NULL) {
         fclose(file);
     }
@@ -88,87 +90,76 @@ int VGAGetNextOutput(FILE *file, VGAOutput *vgaOuput) {
     return 0;
 }
 
-int VGAGetNextFrame(FILE *file, uint32_t *frameBuffer) {
-
-    static int backPorchXCounter = 0;
-    static int backPorchYCounter = 0;
-
-    static int hCounter = 0;
-    static int vCounter = 0;
-
-    static int frameCounter = 0;
-
-    static VGAOutput lastOutput = { 0 };
-    static VGAOutput nextOutput = { 0 };
+int VGAGetNextFrame(VGASimulationState *simulationState, uint32_t *frameBuffer) {
 
     bool showFrame = false;
 
-    if (file == NULL) {
+    if (simulationState->simulationFile == NULL) {
         return -1;
     }
 
-    while (VGAGetNextOutput(file, &nextOutput) >= 0) {
+    while (VGAGetNextOutput(simulationState->simulationFile, &simulationState->nextOutput) >= 0) {
 
-        if (!lastOutput.hSync && nextOutput.hSync) {
+        if (!simulationState->lastOutput.hSync && simulationState->nextOutput.hSync) {
             // New horizontal line
-            hCounter = 0;
+            simulationState->hCounter = 0;
 
             // Move to the next row, if past back porch
-            if (backPorchYCounter >= VGABackPorchY) {
-                vCounter += 1;
+            if (simulationState->backPorchYCounter >= VGABackPorchY) {
+                simulationState->vCounter += 1;
             }
 
             // Increment this so we know how far we are after the vsync pulse
-            backPorchYCounter += 1;
+            simulationState->backPorchYCounter += 1;
 
             // Set this to zero so we can count up to the actual
-            backPorchXCounter = 0;
+            simulationState->backPorchXCounter = 0;
         }
 
-        if (nextOutput.vSync && nextOutput.hSync) {
+        if (simulationState->nextOutput.vSync && simulationState->nextOutput.hSync) {
             // Increment this so we know how far we are
             // After the hsync pulse
-            backPorchXCounter += 1;
+            simulationState->backPorchXCounter += 1;
 
             // If we are past the back porch
             // Then we can start drawing on the canvas
-            if ((backPorchXCounter >= VGABackPorchX) && (backPorchYCounter >= VGABackPorchY)) {
+            if ((simulationState->backPorchXCounter >= VGABackPorchX) && (simulationState->backPorchYCounter >= VGABackPorchY)) {
 
                 // Add pixel
-                if (hCounter < VGAResolutionWidth && vCounter < VGAResolutionHeight) {
-                    frameBuffer[VGAResolutionWidth * vCounter + hCounter] = (nextOutput.blue << 24) + (nextOutput.green << 16) + (nextOutput.red << 8);
+                if (simulationState->hCounter < VGAResolutionWidth && simulationState->vCounter < VGAResolutionHeight) {
+                    frameBuffer[VGAResolutionWidth * simulationState->vCounter + simulationState->hCounter] = (simulationState->nextOutput.blue << 24) + (simulationState->nextOutput.green << 16) + (simulationState->nextOutput.red << 8);
                 }
 
-                if (backPorchXCounter >= VGABackPorchX) {
-                    hCounter += 1;
+                if (simulationState->backPorchXCounter >= VGABackPorchX) {
+                    simulationState->hCounter += 1;
                 }
             }
         }
 
-        if (!lastOutput.vSync && nextOutput.vSync) {
+        if (!simulationState->lastOutput.vSync && simulationState->nextOutput.vSync) {
 
-            if (frameCounter > 0) {
+            if (simulationState->frameCounter > 0) {
                 showFrame = true;
             }
 
             // New frame
-            frameCounter += 1;
-            hCounter = 0;
-            vCounter = 0;
+            simulationState->frameCounter += 1;
+            simulationState->hCounter = 0;
+            simulationState->vCounter = 0;
 
             // Set this to zero so we can count up to the actual
-            backPorchYCounter = 0;
+            simulationState->backPorchYCounter = 0;
         }
 
-        lastOutput = nextOutput;
+        simulationState->lastOutput = simulationState->nextOutput;
 
         if (showFrame) {
-            return frameCounter - 1;
+            return simulationState->frameCounter - 1;
         }
     }
 
-    VGACloseFile(file);
+    VGACloseFile(simulationState->simulationFile);
 
-    frameCounter = 0;
+    simulationState->frameCounter = 0;
     return 0;
 }

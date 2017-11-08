@@ -34,7 +34,11 @@ class VGAThumbnailProvider: QLThumbnailProvider {
                 }
                 
                 Logger.log(debug: "Drawing frame in CGContext...")
-                let contextRect = CGRect(origin: .zero, size: request.maximumSize.scaled(by: UIScreen.main.scale))
+                let boundingBox = CGRect(origin: .zero, size: request.maximumSize.scaled(by: UIScreen.main.scale))
+
+                let thumbnailSize = CGSize(ratio: thumbnailFrame.ratio, boundingBoxSize: boundingBox.size)
+
+                let contextRect = CGRect(size: thumbnailSize, centeredOn: boundingBox)
                 context.draw(thumbnailFrame, in: contextRect)
 
                 Logger.log(debug: "Returning CGContext...")

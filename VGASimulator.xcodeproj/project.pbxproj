@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AA046FD01FB36AA400589072 /* VGASimulationState.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA046FCF1FB36AA400589072 /* VGASimulationState.swift */; };
+		AA046FD61FB36AB000589072 /* VGAOuput.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA046FD51FB36AB000589072 /* VGAOuput.swift */; };
 		AA1001BD1F0944700072EE32 /* LoggerKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA8D19621ECC7E8B008A9B19 /* LoggerKit.framework */; };
 		AA1001BE1F0944700072EE32 /* LoggerKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AA8D19621ECC7E8B008A9B19 /* LoggerKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AA25E3D31EE751F1000B90A7 /* VGASimulatorCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAA4D6781ED5B5B600263E25 /* VGASimulatorCore.framework */; };
@@ -302,6 +304,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		AA046FCF1FB36AA400589072 /* VGASimulationState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGASimulationState.swift; sourceTree = "<group>"; };
+		AA046FD51FB36AB000589072 /* VGAOuput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGAOuput.swift; sourceTree = "<group>"; };
 		AA25E3E21EE75494000B90A7 /* FoundationKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = FoundationKit.xcodeproj; path = ../FoundationKit/FoundationKit.xcodeproj; sourceTree = "<group>"; };
 		AA25E4161EE779A1000B90A7 /* QuickLook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickLook.framework; path = System/Library/Frameworks/QuickLook.framework; sourceTree = SDKROOT; };
 		AA3BCB0A1ED6EEDD003F152D /* VGASimulator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VGASimulator.swift; sourceTree = "<group>"; };
@@ -450,6 +454,8 @@
 			isa = PBXGroup;
 			children = (
 				AA3BCB2A1ED702D4003F152D /* VGASimulation.swift */,
+				AA046FCF1FB36AA400589072 /* VGASimulationState.swift */,
+				AA046FD51FB36AB000589072 /* VGAOuput.swift */,
 				AA3BCB281ED702D4003F152D /* VGAMode.swift */,
 				AA3BCB291ED702D4003F152D /* VGAResolution.swift */,
 				AA3BCB1E1ED702C1003F152D /* Info.plist */,
@@ -1009,9 +1015,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA046FD61FB36AB000589072 /* VGAOuput.swift in Sources */,
 				AA3BCB2C1ED702D4003F152D /* VGAResolution.swift in Sources */,
 				AA3BCB2B1ED702D4003F152D /* VGAMode.swift in Sources */,
 				AA3BCB2D1ED702D4003F152D /* VGASimulation.swift in Sources */,
+				AA046FD01FB36AA400589072 /* VGASimulationState.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

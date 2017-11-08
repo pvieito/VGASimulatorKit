@@ -26,7 +26,7 @@ public class VGADocument: UIDocument {
     var processingQueue = DispatchQueue(label: "com.pvieito.VGASimulator.frameProcessing")
     var availableFrames: [CGImage] = []
     
-    internal func openVGADocument(at url: URL) throws {
+    internal func openVGADocument(at url: URL, frameLimit: Int = Int.max) throws {
         do {
             self.cancelProcessing = false
             
@@ -52,6 +52,11 @@ public class VGADocument: UIDocument {
                     Logger.log(debug: "Simulation frame \(index) loaded...")
                     DispatchQueue.main.async {
                         self.delegate?.document(self, didLoad: frame, at: index)
+                    }
+                    
+                    guard index + 1 < frameLimit else {
+                        Logger.log(debug: "Simulation limit: \(index + 1) rendered frames.")
+                        break
                     }
                 }
                 

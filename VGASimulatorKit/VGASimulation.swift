@@ -53,7 +53,7 @@ public class VGASimulation {
     }
 
     private var frameBuffer: [UInt32]
-    private let filePointer: UnsafeMutablePointer<FILE>
+    private var simulationState: VGASimulationState
     private let context: CGContext
 
     public init(url: URL, mode: VGAMode = VGAMode.vesa1280x1024_60) throws {
@@ -73,11 +73,11 @@ public class VGASimulation {
             throw SimulationError.fileNotAvailable
         }
         
-        self.filePointer = filePointer
+        self.simulationState = VGASimulationState(simulationFile: filePointer)
     }
     
     deinit {
-        VGACloseFile(filePointer)
+        VGACloseFile(self.simulationState.simulationFile)
     }
 
     public var frames: AnyIterator<CGImage> {
@@ -95,7 +95,7 @@ extension VGASimulation {
         
         var frameComplete = false
         
-        while VGAGetNextOutput(filePointer, &nextOutput) >= 0 {
+        while VGAGetNextOutput(self.simulationState.simulationFile, &nextOutput) >= 0 {
                         
             if !lastOutput.vSync && nextOutput.vSync {
 
@@ -151,7 +151,7 @@ extension VGASimulation {
         }
         
         frameCounter += 1
-        VGACloseFile(filePointer)
+        VGACloseFile(self.simulationState.simulationFile)
 
         lastFrame = true
     }
@@ -179,7 +179,7 @@ extension VGASimulation {
             throw SimulationError.simulationComplete
         }
         
-        let result = VGAGetNextFrame(filePointer, &frameBuffer)
+        let result = VGAGetNextFrame(&self.simulationState, &frameBuffer)
         
         if result == 0 {
             lastFrame = true
