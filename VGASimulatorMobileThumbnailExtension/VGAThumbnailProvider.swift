@@ -28,7 +28,7 @@ class VGAThumbnailProvider: QLThumbnailProvider {
                 
                 Logger.log(debug: "Rendering first VGASimulation frame...")
                 
-                guard let thumbnailFrame = simulation.frames.next() else {
+                guard let thumbnailImage = try simulation.frames.next()?.cgImage() else {
                     Logger.log(error: "Error obtaining first VGASimulation frame.")
                     return false
                 }
@@ -36,10 +36,10 @@ class VGAThumbnailProvider: QLThumbnailProvider {
                 Logger.log(debug: "Drawing frame in CGContext...")
                 let boundingBox = CGRect(origin: .zero, size: request.maximumSize.scaled(by: UIScreen.main.scale))
 
-                let thumbnailSize = CGSize(ratio: thumbnailFrame.ratio, boundingBoxSize: boundingBox.size)
+                let thumbnailSize = CGSize(ratio: thumbnailImage.ratio, boundingBoxSize: boundingBox.size)
 
                 let contextRect = CGRect(size: thumbnailSize, centeredOn: boundingBox)
-                context.draw(thumbnailFrame, in: contextRect)
+                context.draw(thumbnailImage, in: contextRect)
 
                 Logger.log(debug: "Returning CGContext...")
                 return true

@@ -11,10 +11,10 @@ import LoggerKit
 import VGASimulatorKit
 
 #if os(macOS)
-    import Cocoa
-    public typealias UIDocument = NSDocument
+import Cocoa
+public typealias UIDocument = NSDocument
 #else
-    import UIKit
+import UIKit
 #endif
 
 public class VGADocument: UIDocument {
@@ -47,16 +47,24 @@ public class VGADocument: UIDocument {
                         return
                     }
                     
-                    self.availableFrames.append(frame)
-                    
-                    Logger.log(debug: "Simulation frame \(index) loaded...")
-                    DispatchQueue.main.async {
-                        self.delegate?.document(self, didLoad: frame, at: index)
+                    do {
+                        let frameImage = try frame.cgImage()
+                        self.availableFrames.append(frameImage)
+                        
+                        Logger.log(debug: "Simulation frame \(index) loaded...")
+                        
+                        DispatchQueue.main.async {
+                            self.delegate?.document(self, didLoad: frameImage, at: index)
+                        }
+                        
+                        guard index + 1 < frameLimit else {
+                            Logger.log(debug: "Simulation limit: \(index + 1) rendered frames.")
+                            break
+                        }
                     }
-                    
-                    guard index + 1 < frameLimit else {
-                        Logger.log(debug: "Simulation limit: \(index + 1) rendered frames.")
-                        break
+                    catch {
+                        Logger.log(error: error)
+                        continue
                     }
                 }
                 
@@ -78,40 +86,40 @@ public class VGADocument: UIDocument {
 }
 
 #if os(iOS)
-    extension VGADocument {
-        
-        public override func read(from url: URL) throws {
-            try self.openVGADocument(at: url)
-        }
-        
-        public override func close(completionHandler: ((Bool) -> Void)? = nil) {
-            self.closeVGADocument()
-            super.close(completionHandler: completionHandler)
-        }
+extension VGADocument {
+    
+    public override func read(from url: URL) throws {
+        try self.openVGADocument(at: url)
     }
+    
+    public override func close(completionHandler: ((Bool) -> Void)? = nil) {
+        self.closeVGADocument()
+        super.close(completionHandler: completionHandler)
+    }
+}
 #endif
 
 #if os(macOS)
-    extension VGADocument {
-        
-        public override func read(from url: URL, ofType typeName: String) throws {
-            try self.openVGADocument(at: url)
-        }
-        
-        public override func close() {
-            self.closeVGADocument()
-            super.close()
-        }
-        
-        public override func makeWindowControllers() {
-            // Returns the Storyboard that contains your Document window.
-            let storyboard = NSStoryboard(name: NSStoryboard.Name("Main"), bundle: nil)
-            let windowController = storyboard.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier("VGADocumentWindowController")) as! NSWindowController
-            self.addWindowController(windowController)
-            
-            let simulatorViewController = windowController.contentViewController as? VGASimulationViewController
-            self.delegate = simulatorViewController
-        }
+extension VGADocument {
+    
+    public override func read(from url: URL, ofType typeName: String) throws {
+        try self.openVGADocument(at: url)
     }
+    
+    public override func close() {
+        self.closeVGADocument()
+        super.close()
+    }
+    
+    public override func makeWindowControllers() {
+        // Returns the Storyboard that contains your Document window.
+        let storyboard = NSStoryboard(name: NSStoryboard.Name("Main"), bundle: nil)
+        let windowController = storyboard.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier("VGADocumentWindowController")) as! NSWindowController
+        self.addWindowController(windowController)
+        
+        let simulatorViewController = windowController.contentViewController as? VGASimulationViewController
+        self.delegate = simulatorViewController
+    }
+}
 #endif
 
