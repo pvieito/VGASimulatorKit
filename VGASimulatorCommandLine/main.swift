@@ -7,20 +7,29 @@
 //  Copyright © 2017 Pedro José Pereira Vieito. All rights reserved.
 //
 
-import Cocoa
+import Foundation
+import FoundationKit
 import LoggerKit
-import CoreGraphicsKit
 import CommandLineKit
 import VGASimulatorKit
 
+#if canImport(Cocoa)
+import CoreGraphicsKit
+import Cocoa
+#else
+import MaxPNG
+#endif
 
 let inputOption = StringOption(shortFlag: "i", longFlag: "input", required: true, helpMessage: "Input simulation.")
-let cOption = BoolOption(shortFlag: "c", longFlag: "cmode", helpMessage: "Use C simulation mode.")
+let outputOption = StringOption(shortFlag: "o", longFlag: "output", helpMessage: "Output directory.")
+let framesOption = IntOption(shortFlag: "f", longFlag: "frames", helpMessage: "Number of frames.")
+let noRenderOption = BoolOption(longFlag: "norender", helpMessage: "Disable rendering of frames.")
 let verboseOption = BoolOption(shortFlag: "v", longFlag: "verbose", helpMessage: "Verbose mode.")
+let debugOption = BoolOption(shortFlag: "d", longFlag: "debug", helpMessage: "Debug mode.")
 let helpOption = BoolOption(shortFlag: "h", longFlag: "help", helpMessage: "Prints a help message.")
 
 let cli = CommandLineKit.CommandLine()
-cli.addOptions(inputOption, verboseOption, helpOption)
+cli.addOptions(inputOption, outputOption, framesOption, noRenderOption, verboseOption, debugOption, helpOption)
 
 do {
     try cli.parse(strict: true)
@@ -36,7 +45,8 @@ if helpOption.value {
 }
 
 Logger.logMode = .commandLine
-Logger.logLevel = verboseOption.value ? .debug : .info
+Logger.logLevel = verboseOption.value ? .verbose : .info
+Logger.logLevel = debugOption.value ? .debug : Logger.logLevel
 
 guard let inputPath = inputOption.value else {
     Logger.log(error: "No input simulation specified.")
@@ -45,28 +55,53 @@ guard let inputPath = inputOption.value else {
 
 do {
     let inputURL = URL(fileURLWithPath: inputPath)
-
+    
     let simulation = try VGASimulation(url: inputURL)
-
+    let simulationName = inputURL.deletingPathExtension().lastPathComponent
+    
     Logger.log(important: "VGA Simulation Input: \(inputURL.lastPathComponent)")
     Logger.log(info: "VGA Mode: \(simulation.mode)")
-
-    let frames = cOption.value ? simulation.framesC : simulation.frames
-
-    for (frameCount, frame) in frames.enumerated() {
-
-        Logger.log(info: "Frame \(frameCount) decoded")
-
+    
+    for (frameCount, frame) in simulation.frames.enumerated() {
+        
+        if let frameLimit = framesOption.value, frameLimit <= frameCount {
+            break
+        }
+        
+        Logger.log(success: "Frame \(frameCount) decoded")
+        
+        guard !noRenderOption.value else {
+            continue
+        }
+        
         do {
-            let imageFile = try frame.temporaryFile(format: .png)
-            NSWorkspace.shared.open(imageFile)
+            let outputDirectoryPath = outputOption.value ?? FileManager.default.autocleanedTemporaryDirectory.path
+            let outputDirectoryURL = URL(fileURLWithPath: outputDirectoryPath)
+            
+            let outputURL = outputDirectoryURL
+                .appendingPathComponent("\(simulationName)_\(frameCount)")
+                .appendingPathExtension("png")
+            
+            Logger.log(debug: "Writing rendered image for frame \(frameCount) at “\(outputURL.path)”...")
+            
+            #if canImport(Cocoa)
+            try frame.cgImage().write(to: outputURL, format: .png)
+            
+            if outputOption.value == nil {
+                NSWorkspace.shared.open(outputURL)
+            }
+            #else
+            let pngSettings = PNGProperties(width: simulation.resolution.width,
+                                            height: simulation.resolution.height,
+                                            color: .rgba8,
+                                            interlaced: false)
+            try png_encode(path: outputURL.path, raw_data: frame.pixelBuffer, properties: pngSettings)
+            #endif
         }
         catch {
             Logger.log(error: error)
         }
     }
-
-    Logger.log(success: "VGA Simulation complete")
 }
 catch {
     Logger.log(error: error)

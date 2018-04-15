@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AA046FD01FB36AA400589072 /* VGASimulationState.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA046FCF1FB36AA400589072 /* VGASimulationState.swift */; };
 		AA046FD61FB36AB000589072 /* VGAOuput.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA046FD51FB36AB000589072 /* VGAOuput.swift */; };
 		AA1001BD1F0944700072EE32 /* LoggerKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA8D19621ECC7E8B008A9B19 /* LoggerKit.framework */; };
 		AA1001BE1F0944700072EE32 /* LoggerKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AA8D19621ECC7E8B008A9B19 /* LoggerKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -30,6 +29,8 @@
 		AA3E864C1EE64414005FFE88 /* VGASimulationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3E864B1EE64414005FFE88 /* VGASimulationViewController.swift */; };
 		AA3E86501EE64414005FFE88 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA3E864F1EE64414005FFE88 /* Assets.xcassets */; };
 		AA3E86531EE64414005FFE88 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA3E86511EE64414005FFE88 /* Main.storyboard */; };
+		AA46063220827CDA003C5014 /* VGAFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA46063120827CD9003C5014 /* VGAFrame.swift */; };
+		AA46063420827E94003C5014 /* VGAFrame+CGImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA46063320827E94003C5014 /* VGAFrame+CGImage.swift */; };
 		AA8D19821ECC7F8B008A9B19 /* CommandLineKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA8D197F1ECC7EB2008A9B19 /* CommandLineKit.framework */; };
 		AA8D19831ECC7F8B008A9B19 /* CoreGraphicsKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA8D19761ECC7EA2008A9B19 /* CoreGraphicsKit.framework */; };
 		AA8D19841ECC7F8B008A9B19 /* LoggerKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA8D19621ECC7E8B008A9B19 /* LoggerKit.framework */; };
@@ -304,7 +305,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		AA046FCF1FB36AA400589072 /* VGASimulationState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGASimulationState.swift; sourceTree = "<group>"; };
 		AA046FD51FB36AB000589072 /* VGAOuput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGAOuput.swift; sourceTree = "<group>"; };
 		AA25E3E21EE75494000B90A7 /* FoundationKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = FoundationKit.xcodeproj; path = ../FoundationKit/FoundationKit.xcodeproj; sourceTree = "<group>"; };
 		AA25E4161EE779A1000B90A7 /* QuickLook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickLook.framework; path = System/Library/Frameworks/QuickLook.framework; sourceTree = SDKROOT; };
@@ -324,6 +324,8 @@
 		AA3E86541EE64414005FFE88 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AA3E86551EE64414005FFE88 /* VGASimulator.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = VGASimulator.entitlements; sourceTree = "<group>"; };
 		AA3E865F1EE64431005FFE88 /* Quartz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quartz.framework; path = System/Library/Frameworks/Quartz.framework; sourceTree = SDKROOT; };
+		AA46063120827CD9003C5014 /* VGAFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGAFrame.swift; sourceTree = "<group>"; };
+		AA46063320827E94003C5014 /* VGAFrame+CGImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VGAFrame+CGImage.swift"; sourceTree = "<group>"; };
 		AA8D19511ECC7E51008A9B19 /* VGASimulator */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = VGASimulator; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA8D19541ECC7E51008A9B19 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		AA8D195D1ECC7E8B008A9B19 /* LoggerKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = LoggerKit.xcodeproj; path = ../LoggerKit/LoggerKit.xcodeproj; sourceTree = "<group>"; };
@@ -335,7 +337,7 @@
 		AAA4D6781ED5B5B600263E25 /* VGASimulatorCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = VGASimulatorCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAA4D67B1ED5B5B600263E25 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AAA4D6821ED5B5D200263E25 /* VGASimulatorCore.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = VGASimulatorCore.c; sourceTree = "<group>"; };
-		AAA4D6831ED5B5D200263E25 /* VGASimulatorCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VGASimulatorCore.h; sourceTree = "<group>"; };
+		AAA4D6831ED5B5D200263E25 /* VGASimulatorCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VGASimulatorCore.h; path = Include/VGASimulatorCore.h; sourceTree = "<group>"; };
 		AAA4D6881ED5B68700263E25 /* VGASimulator.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = VGASimulator.py; sourceTree = "<group>"; };
 		AAAD3E161F0942CD008F6189 /* VGASimulatorMobileThumbnailExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = VGASimulatorMobileThumbnailExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAAD3E181F0942CE008F6189 /* VGAThumbnailProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGAThumbnailProvider.swift; sourceTree = "<group>"; };
@@ -454,7 +456,8 @@
 			isa = PBXGroup;
 			children = (
 				AA3BCB2A1ED702D4003F152D /* VGASimulation.swift */,
-				AA046FCF1FB36AA400589072 /* VGASimulationState.swift */,
+				AA46063120827CD9003C5014 /* VGAFrame.swift */,
+				AA46063320827E94003C5014 /* VGAFrame+CGImage.swift */,
 				AA046FD51FB36AB000589072 /* VGAOuput.swift */,
 				AA3BCB281ED702D4003F152D /* VGAMode.swift */,
 				AA3BCB291ED702D4003F152D /* VGAResolution.swift */,
@@ -494,12 +497,12 @@
 				AA8D195D1ECC7E8B008A9B19 /* LoggerKit.xcodeproj */,
 				AAA4D6791ED5B5B600263E25 /* VGASimulatorCore */,
 				AA3BCB1C1ED702C1003F152D /* VGASimulatorKit */,
+				AA8D19531ECC7E51008A9B19 /* VGASimulatorCommandLine */,
 				AACFEFDF1FB2636D0093C0A3 /* VGASimulatorUI */,
 				AA3E86481EE64414005FFE88 /* VGASimulator */,
 				AAB07B311EEB75E50039952C /* VGASimulatorMobile */,
 				AAAD3E171F0942CE008F6189 /* VGASimulatorMobileThumbnailExtension */,
 				AACFEFC71FB2615F0093C0A3 /* VGASimulatorMobileQuickLookExtension */,
-				AA8D19531ECC7E51008A9B19 /* VGASimulatorCommandLine */,
 				AA3E865E1EE64431005FFE88 /* Frameworks */,
 				AA8D19521ECC7E51008A9B19 /* Products */,
 			);
@@ -571,7 +574,8 @@
 				AAA4D6881ED5B68700263E25 /* VGASimulator.py */,
 				AA3BCB0A1ED6EEDD003F152D /* VGASimulator.swift */,
 			);
-			path = Legacy;
+			name = Legacy;
+			path = ../VGASimulatorKit/Legacy;
 			sourceTree = "<group>";
 		};
 		AAAD3E171F0942CE008F6189 /* VGASimulatorMobileThumbnailExtension */ = {
@@ -1017,9 +1021,10 @@
 			files = (
 				AA046FD61FB36AB000589072 /* VGAOuput.swift in Sources */,
 				AA3BCB2C1ED702D4003F152D /* VGAResolution.swift in Sources */,
+				AA46063220827CDA003C5014 /* VGAFrame.swift in Sources */,
 				AA3BCB2B1ED702D4003F152D /* VGAMode.swift in Sources */,
 				AA3BCB2D1ED702D4003F152D /* VGASimulation.swift in Sources */,
-				AA046FD01FB36AA400589072 /* VGASimulationState.swift in Sources */,
+				AA46063420827E94003C5014 /* VGAFrame+CGImage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1222,6 +1227,7 @@
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "macosx iphoneos iphonesimulator";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = "x86_64 arm64";

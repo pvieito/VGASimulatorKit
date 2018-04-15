@@ -1,0 +1,43 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "CommandLineKit",
+        "repositoryURL": "/Developer/CommandLineKit",
+        "state": {
+          "branch": "master",
+          "revision": "45fe2958560c8314ba035ec70b02a5b5b8c0c688",
+          "version": null
+        }
+      },
+      {
+        "package": "FoundationKit",
+        "repositoryURL": "/Developer/FoundationKit",
+        "state": {
+          "branch": "master",
+          "revision": "c7da5a9605986e439df80ea203a7263076360522",
+          "version": null
+        }
+      },
+      {
+        "package": "LoggerKit",
+        "repositoryURL": "/Developer/LoggerKit",
+        "state": {
+          "branch": "master",
+          "revision": "f2ec0641058d3aa2f340d4eac18519a34c642c02",
+          "version": null
+        }
+      },
+      {
+        "package": "MaxPNG",
+        "repositoryURL": "https://github.com/kelvin13/maxpng.git",
+        "state": {
+          "branch": "master",
+          "revision": "c64681aa90e01af724e5142fb13a9957c942b9a2",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}
