@@ -6,7 +6,7 @@
         "repositoryURL": "/Developer/CommandLineKit",
         "state": {
           "branch": "master",
-          "revision": "45fe2958560c8314ba035ec70b02a5b5b8c0c688",
+          "revision": "54c4233928638f19f73725fc789b73ec9e932c4e",
           "version": null
         }
       },
@@ -15,7 +15,7 @@
         "repositoryURL": "/Developer/FoundationKit",
         "state": {
           "branch": "master",
-          "revision": "c7da5a9605986e439df80ea203a7263076360522",
+          "revision": "fbd1ec4deaa9ed910cf937e2860a26c6d774d233",
           "version": null
         }
       },
@@ -24,7 +24,7 @@
         "repositoryURL": "/Developer/LoggerKit",
         "state": {
           "branch": "master",
-          "revision": "f2ec0641058d3aa2f340d4eac18519a34c642c02",
+          "revision": "1b98dc2beb96eaa595a6bd39d64e09e772a2ddf0",
           "version": null
         }
       },
@@ -33,7 +33,7 @@
         "repositoryURL": "https://github.com/kelvin13/maxpng.git",
         "state": {
           "branch": "master",
-          "revision": "c64681aa90e01af724e5142fb13a9957c942b9a2",
+          "revision": "4b2570533ed9c403cc31950438e7336932d5d083",
           "version": null
         }
       }

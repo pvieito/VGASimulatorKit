@@ -1,4 +1,4 @@
-// swift-tools-version:4.0
+// swift-tools-version:4.2
 
 import PackageDescription
 
@@ -10,9 +10,9 @@ let package = Package(
         .executable(name: "VGASimulator", targets: ["VGASimulatorCommandLine"]),
     ],
     dependencies: [
-        .package(url: "../LoggerKit", .branch("master")),
-        .package(url: "../CommandLineKit", .branch("master")),
-        .package(url: "../FoundationKit", .branch("master")),
+        .package(path: "../LoggerKit"),
+        .package(path: "../CommandLineKit"),
+        .package(path: "../FoundationKit"),
         .package(url: "https://github.com/kelvin13/maxpng.git", .branch("master"))
     ],
     targets: [
