@@ -36,7 +36,7 @@ do {
 }
 catch {
     cli.printUsage(error)
-    exit(-1)
+    exit(EX_USAGE)
 }
 
 if helpOption.value {
@@ -49,13 +49,11 @@ Logger.logLevel = verboseOption.value ? .verbose : .info
 Logger.logLevel = debugOption.value ? .debug : Logger.logLevel
 
 guard let inputPath = inputOption.value else {
-    Logger.log(error: "No input simulation specified.")
-    exit(-1)
+    Logger.log(fatalError: "No input simulation specified.")
 }
 
 do {
     let inputURL = URL(fileURLWithPath: inputPath)
-    
     let simulation = try VGASimulation(url: inputURL)
     let simulationName = inputURL.deletingPathExtension().lastPathComponent
     
@@ -63,7 +61,6 @@ do {
     Logger.log(info: "VGA Mode: \(simulation.mode)")
     
     for (frameCount, frame) in simulation.frames.enumerated() {
-        
         if let frameLimit = framesOption.value, frameLimit <= frameCount {
             break
         }
@@ -104,5 +101,5 @@ do {
     }
 }
 catch {
-    Logger.log(error: error)
+    Logger.log(fatalError: error)
 }
