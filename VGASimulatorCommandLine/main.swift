@@ -11,14 +11,8 @@ import Foundation
 import FoundationKit
 import LoggerKit
 import CommandLineKit
-import VGASimulatorKit
-
-#if canImport(Cocoa)
 import CoreGraphicsKit
-import Cocoa
-#else
-import MaxPNG
-#endif
+import VGASimulatorKit
 
 let inputOption = StringOption(shortFlag: "i", longFlag: "input", required: true, helpMessage: "Input simulation.")
 let outputOption = StringOption(shortFlag: "o", longFlag: "output", helpMessage: "Output directory.")
@@ -81,19 +75,11 @@ do {
             
             Logger.log(debug: "Writing rendered image for frame \(frameCount) at “\(outputURL.path)”...")
             
-            #if canImport(Cocoa)
             try frame.cgImage().write(to: outputURL, format: .png)
             
             if outputOption.value == nil {
-                NSWorkspace.shared.open(outputURL)
+                try outputURL.open()
             }
-            #else
-            let pngSettings = PNGProperties(width: simulation.resolution.width,
-                                            height: simulation.resolution.height,
-                                            color: .rgba8,
-                                            interlaced: false)
-            try png_encode(path: outputURL.path, raw_data: frame.pixelBuffer, properties: pngSettings)
-            #endif
         }
         catch {
             Logger.log(error: error)

@@ -167,6 +167,13 @@
 			remoteGlobalIDString = AABBD99C1E5761BD00AE5B46;
 			remoteInfo = LoggerKit;
 		};
+		AA804FD1224841D90006A522 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AA8D19791ECC7EB2008A9B19 /* CommandLineKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = AABB3B53220FB42A00DEE6F4;
+			remoteInfo = CommandLineKitTests;
+		};
 		AA8D19611ECC7E8B008A9B19 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = AA8D195D1ECC7E8B008A9B19 /* LoggerKit.xcodeproj */;
@@ -308,7 +315,6 @@
 		AA046FD51FB36AB000589072 /* VGAOuput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGAOuput.swift; sourceTree = "<group>"; };
 		AA25E3E21EE75494000B90A7 /* FoundationKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = FoundationKit.xcodeproj; path = ../FoundationKit/FoundationKit.xcodeproj; sourceTree = "<group>"; };
 		AA25E4161EE779A1000B90A7 /* QuickLook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickLook.framework; path = System/Library/Frameworks/QuickLook.framework; sourceTree = SDKROOT; };
-		AA3BCB0A1ED6EEDD003F152D /* VGASimulator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VGASimulator.swift; sourceTree = "<group>"; };
 		AA3BCB1B1ED702C1003F152D /* VGASimulatorKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = VGASimulatorKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA3BCB1E1ED702C1003F152D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AA3BCB281ED702D4003F152D /* VGAMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VGAMode.swift; sourceTree = "<group>"; };
@@ -326,6 +332,7 @@
 		AA3E865F1EE64431005FFE88 /* Quartz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quartz.framework; path = System/Library/Frameworks/Quartz.framework; sourceTree = SDKROOT; };
 		AA46063120827CD9003C5014 /* VGAFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGAFrame.swift; sourceTree = "<group>"; };
 		AA46063320827E94003C5014 /* VGAFrame+CGImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VGAFrame+CGImage.swift"; sourceTree = "<group>"; };
+		AA804FD6224842940006A522 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		AA8D19511ECC7E51008A9B19 /* VGASimulator */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = VGASimulator; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA8D19541ECC7E51008A9B19 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		AA8D195D1ECC7E8B008A9B19 /* LoggerKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = LoggerKit.xcodeproj; path = ../LoggerKit/LoggerKit.xcodeproj; sourceTree = "<group>"; };
@@ -338,7 +345,6 @@
 		AAA4D67B1ED5B5B600263E25 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AAA4D6821ED5B5D200263E25 /* VGASimulatorCore.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = VGASimulatorCore.c; sourceTree = "<group>"; };
 		AAA4D6831ED5B5D200263E25 /* VGASimulatorCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VGASimulatorCore.h; path = Include/VGASimulatorCore.h; sourceTree = "<group>"; };
-		AAA4D6881ED5B68700263E25 /* VGASimulator.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = VGASimulator.py; sourceTree = "<group>"; };
 		AAAD3E161F0942CD008F6189 /* VGASimulatorMobileThumbnailExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = VGASimulatorMobileThumbnailExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAAD3E181F0942CE008F6189 /* VGAThumbnailProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGAThumbnailProvider.swift; sourceTree = "<group>"; };
 		AAAD3E1A1F0942CE008F6189 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -495,6 +501,7 @@
 				AA8D19791ECC7EB2008A9B19 /* CommandLineKit.xcodeproj */,
 				AA8D196E1ECC7EA2008A9B19 /* CoreGraphicsKit.xcodeproj */,
 				AA8D195D1ECC7E8B008A9B19 /* LoggerKit.xcodeproj */,
+				AA804FD6224842940006A522 /* Package.swift */,
 				AAA4D6791ED5B5B600263E25 /* VGASimulatorCore */,
 				AA3BCB1C1ED702C1003F152D /* VGASimulatorKit */,
 				AA8D19531ECC7E51008A9B19 /* VGASimulatorCommandLine */,
@@ -553,6 +560,7 @@
 			isa = PBXGroup;
 			children = (
 				AA8D197F1ECC7EB2008A9B19 /* CommandLineKit.framework */,
+				AA804FD2224841D90006A522 /* CommandLineKitTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -563,19 +571,8 @@
 				AAA4D6821ED5B5D200263E25 /* VGASimulatorCore.c */,
 				AAA4D6831ED5B5D200263E25 /* VGASimulatorCore.h */,
 				AAA4D67B1ED5B5B600263E25 /* Info.plist */,
-				AAA4D6871ED5B68700263E25 /* Legacy */,
 			);
 			path = VGASimulatorCore;
-			sourceTree = "<group>";
-		};
-		AAA4D6871ED5B68700263E25 /* Legacy */ = {
-			isa = PBXGroup;
-			children = (
-				AAA4D6881ED5B68700263E25 /* VGASimulator.py */,
-				AA3BCB0A1ED6EEDD003F152D /* VGASimulator.swift */,
-			);
-			name = Legacy;
-			path = ../VGASimulatorKit/Legacy;
 			sourceTree = "<group>";
 		};
 		AAAD3E171F0942CE008F6189 /* VGASimulatorMobileThumbnailExtension */ = {
@@ -817,23 +814,23 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0910;
-				LastUpgradeCheck = 1010;
+				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = "Pedro José Pereira Vieito";
 				TargetAttributes = {
 					AA3BCB1A1ED702C1003F152D = {
 						CreatedOnToolsVersion = 8.3.2;
-						LastSwiftMigration = 1000;
+						LastSwiftMigration = 1020;
 						ProvisioningStyle = Automatic;
 					};
 					AA3E86461EE64414005FFE88 = {
 						CreatedOnToolsVersion = 9.0;
 						DevelopmentTeam = T7MC635YG5;
-						LastSwiftMigration = 1000;
+						LastSwiftMigration = 1020;
 					};
 					AA8D19501ECC7E51008A9B19 = {
 						CreatedOnToolsVersion = 8.3.2;
 						DevelopmentTeam = T7MC635YG5;
-						LastSwiftMigration = 0900;
+						LastSwiftMigration = 1020;
 						ProvisioningStyle = Automatic;
 					};
 					AAA4D6771ED5B5B600263E25 = {
@@ -844,25 +841,30 @@
 					AAAD3E151F0942CD008F6189 = {
 						CreatedOnToolsVersion = 9.0;
 						DevelopmentTeam = T7MC635YG5;
+						LastSwiftMigration = 1020;
 					};
 					AAB07B2F1EEB75E50039952C = {
 						CreatedOnToolsVersion = 9.0;
 						DevelopmentTeam = T7MC635YG5;
+						LastSwiftMigration = 1020;
 					};
 					AACFEFC41FB2615E0093C0A3 = {
 						CreatedOnToolsVersion = 9.1;
 						DevelopmentTeam = T7MC635YG5;
+						LastSwiftMigration = 1020;
 						ProvisioningStyle = Automatic;
 					};
 					AACFEFDD1FB2636D0093C0A3 = {
 						CreatedOnToolsVersion = 9.1;
+						DevelopmentTeam = T7MC635YG5;
+						LastSwiftMigration = 1020;
 						ProvisioningStyle = Automatic;
 					};
 				};
 			};
 			buildConfigurationList = AA8D194C1ECC7E51008A9B19 /* Build configuration list for PBXProject "VGASimulator" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
@@ -930,6 +932,13 @@
 			fileType = wrapper.framework;
 			path = FoundationKit.framework;
 			remoteRef = AA25E3E61EE75495000B90A7 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		AA804FD2224841D90006A522 /* CommandLineKitTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = CommandLineKitTests.xctest;
+			remoteRef = AA804FD1224841D90006A522 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		AA8D19621ECC7E8B008A9B19 /* LoggerKit.framework */ = {
@@ -1229,7 +1238,7 @@
 				SUPPORTED_PLATFORMS = "macosx iphoneos iphonesimulator";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = "x86_64 arm64";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1260,7 +1269,7 @@
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "macosx iphoneos iphonesimulator";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = "x86_64 arm64";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1289,7 +1298,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.pvieito.VGASimulator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -1314,7 +1323,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.pvieito.VGASimulator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -1322,6 +1331,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -1382,6 +1392,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -1443,6 +1454,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.pvieito.VGASimulator;
 				PRODUCT_NAME = VGASimulator;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -1458,6 +1470,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.pvieito.VGASimulator;
 				PRODUCT_NAME = VGASimulator;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -1545,7 +1558,7 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1566,7 +1579,7 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -1589,7 +1602,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1611,7 +1624,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -1634,7 +1647,7 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1656,7 +1669,7 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -1668,12 +1681,12 @@
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = T7MC635YG5;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 2;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -1687,7 +1700,7 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -1704,7 +1717,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = T7MC635YG5;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 2;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -1718,7 +1731,7 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSION_INFO_PREFIX = "";

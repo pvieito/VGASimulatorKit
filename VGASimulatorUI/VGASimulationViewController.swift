@@ -37,11 +37,11 @@ open class VGASimulationViewController: UIViewController {
         pageViewController.dataSource = self
         pageViewController.delegate = self
 
-        self.addChildViewController(pageViewController)
+        self.addChild(pageViewController)
         self.view.addSubview(pageViewController.view)
         pageViewController.view.frame = self.view.bounds
         
-        self.pageViewController.didMove(toParentViewController: self)
+        self.pageViewController.didMove(toParent: self)
         
         self.document?.delegate = self
     }
@@ -110,7 +110,7 @@ extension VGASimulationViewController: UIPageViewControllerDataSource {
             return nil
         }
         
-        guard let index = self.frameViewControllers.index(of: viewController) else {
+        guard let index = self.frameViewControllers.firstIndex(of: viewController) else {
             return nil
         }
         
@@ -129,7 +129,7 @@ extension VGASimulationViewController: UIPageViewControllerDataSource {
             return nil
         }
         
-        guard let index = self.frameViewControllers.index(of: viewController) else {
+        guard let index = self.frameViewControllers.firstIndex(of: viewController) else {
             return nil
         }
         

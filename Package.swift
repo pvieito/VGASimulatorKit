@@ -1,29 +1,39 @@
-// swift-tools-version:4.2
+// swift-tools-version:5.0
 
 import PackageDescription
 
 let package = Package(
     name: "VGASimulator",
     products: [
-        .library(name: "VGASimulatorCore", targets: ["VGASimulatorCore"]),
-        .library(name: "VGASimulatorKit", targets: ["VGASimulatorKit"]),
-        .executable(name: "VGASimulator", targets: ["VGASimulatorCommandLine"]),
+        .executable(
+            name: "VGASimulator",
+            targets: ["VGASimulatorCommandLine"]
+        ),
+        .library(
+            name: "VGASimulatorKit",
+            targets: ["VGASimulatorKit"]
+        )
     ],
     dependencies: [
         .package(path: "../LoggerKit"),
         .package(path: "../CommandLineKit"),
         .package(path: "../FoundationKit"),
-        .package(url: "https://github.com/kelvin13/maxpng.git", .branch("master"))
+        .package(path: "../CoreGraphicsKit")
     ],
     targets: [
-        .target(name: "VGASimulatorCore",
-                path: "VGASimulatorCore"),
-        .target(name: "VGASimulatorKit",
-                dependencies: ["VGASimulatorCore"],
-                path: "VGASimulatorKit",
-                exclude: ["Legacy"]),
-        .target(name: "VGASimulatorCommandLine",
-                dependencies: ["LoggerKit", "CommandLineKit", "VGASimulatorKit", "FoundationKit", "MaxPNG"],
-                path: "VGASimulatorCommandLine"),
+        .target(
+            name: "VGASimulatorCommandLine",
+            dependencies: ["VGASimulatorKit", "LoggerKit", "CommandLineKit", "FoundationKit", "CoreGraphicsKit"],
+            path: "VGASimulatorCommandLine"
+        ),
+        .target(
+            name: "VGASimulatorKit",
+            dependencies: ["VGASimulatorCore"],
+            path: "VGASimulatorKit"
+        ),
+        .target(
+            name: "VGASimulatorCore",
+            path: "VGASimulatorCore"
+        )
     ]
 )

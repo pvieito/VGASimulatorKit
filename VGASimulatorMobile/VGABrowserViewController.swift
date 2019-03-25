@@ -28,7 +28,7 @@ class VGABrowserViewController: UIDocumentBrowserViewController {
         
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
         let navigationViewController = storyBoard.instantiateViewController(withIdentifier: "VGANavigationViewController") as! UINavigationController
-        let simulationViewController = navigationViewController.childViewControllers.first as! VGASimulationViewController
+        let simulationViewController = navigationViewController.children.first as! VGASimulationViewController
         simulationViewController.loadSimulationAsDocument(at: documentURL)
         
         present(navigationViewController, animated: true, completion: nil)
