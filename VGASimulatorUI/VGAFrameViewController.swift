@@ -10,7 +10,6 @@ import UIKit
 import CoreGraphics
 
 internal class VGAFrameViewController: UIViewController {
-    
     @IBOutlet weak var imageView: UIImageView!
     
     var frame: CGImage!
@@ -21,7 +20,6 @@ internal class VGAFrameViewController: UIViewController {
     
     convenience init(frame: CGImage) {
         self.init()
-        
         self.frame = frame
     }
     

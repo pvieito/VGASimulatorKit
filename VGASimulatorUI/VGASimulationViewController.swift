@@ -10,7 +10,6 @@ import UIKit
 import VGASimulatorKit
 
 open class VGASimulationViewController: UIViewController {
-    
     @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
     
     private var pageViewController: UIPageViewController!
@@ -46,9 +45,15 @@ open class VGASimulationViewController: UIViewController {
         self.document?.delegate = self
     }
     
+    open override var keyCommands: [UIKeyCommand]? {
+        return [
+            UIKeyCommand(input: UIKeyCommand.inputRightArrow, modifierFlags: [], action: #selector(self.showNextFrame(_:))),
+            UIKeyCommand(input: UIKeyCommand.inputLeftArrow, modifierFlags: [], action: #selector(self.showPreviousFrame(_:)))
+        ]
+    }
+    
     @available(iOSApplicationExtension, unavailable)
     public func loadSimulationAsDocument(at url: URL) {
-        
         self.document = VGADocument(fileURL: url)
         self.document?.open(completionHandler: { (success) in
             
@@ -61,7 +66,6 @@ open class VGASimulationViewController: UIViewController {
     }
     
     public func loadSimulation(at url: URL, frameLimit: Int) throws {
-        
         guard self.extensionContext != nil else {
             fatalError("Use loadSimulationAsDocument(at:) instead.")
         }
@@ -77,14 +81,45 @@ open class VGASimulationViewController: UIViewController {
     }
 }
 
-extension VGASimulationViewController: VGADocumentDelegate {
+extension VGASimulationViewController {
+    func frameViewController(at offset: Int) -> VGAFrameViewController? {
+        guard let currentViewController = self.pageViewController.viewControllers?.first as? VGAFrameViewController,
+            let index = self.frameViewControllers.firstIndex(of: currentViewController) else {
+                return nil
+        }
+        
+        let newIndex = index + offset
+        
+        guard newIndex >= 0 && newIndex < self.frameViewControllers.count else {
+            return nil
+        }
+        
+        return self.frameViewControllers[newIndex]
+    }
+
+    func showFrameViewController(at offset: Int) {
+        guard let frameViewController = self.frameViewController(at: offset) else { return }
+        let navigationDirection: UIPageViewController.NavigationDirection = offset >= 0 ? .forward : .reverse
+        return self.pageViewController.setViewControllers(
+            [frameViewController], direction: navigationDirection,
+            animated: true, completion: nil)
+    }
     
+    @objc func showPreviousFrame(_ sender: AnyObject) {
+        showFrameViewController(at: -1)
+    }
+    
+    @objc func showNextFrame(_ sender: AnyObject) {
+        showFrameViewController(at: 1)
+    }
+}
+
+extension VGASimulationViewController: VGADocumentDelegate {
     public func documentDidStartProcessing() {
         self.activityIndicatorView.startAnimating()
     }
     
     public func document(_ document: VGADocument, didLoad frame: CGImage, at index: Int) {
-        
         let frameViewController = VGAFrameViewController(frame: frame)
         self.frameViewControllers.append(frameViewController)
         
@@ -103,46 +138,13 @@ extension VGASimulationViewController: VGADocumentDelegate {
 }
 
 extension VGASimulationViewController: UIPageViewControllerDataSource {
-    
     public func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-        
-        guard let viewController = viewController as? VGAFrameViewController else {
-            return nil
-        }
-        
-        guard let index = self.frameViewControllers.firstIndex(of: viewController) else {
-            return nil
-        }
-        
-        let newIndex = index - 1
-        
-        guard newIndex >= 0 && newIndex < self.frameViewControllers.count else {
-            return nil
-        }
-        
-        return self.frameViewControllers[index - 1]
+        return self.frameViewController(at: -1)
     }
     
     public func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-        
-        guard let viewController = viewController as? VGAFrameViewController else {
-            return nil
-        }
-        
-        guard let index = self.frameViewControllers.firstIndex(of: viewController) else {
-            return nil
-        }
-        
-        let newIndex = index + 1
-        
-        guard newIndex >= 0 && newIndex < self.frameViewControllers.count else {
-            return nil
-        }
-        
-        return self.frameViewControllers[newIndex]
+        return self.frameViewController(at: 1)
     }
 }
 
-extension VGASimulationViewController: UIPageViewControllerDelegate {
-    
-}
+extension VGASimulationViewController: UIPageViewControllerDelegate {}
