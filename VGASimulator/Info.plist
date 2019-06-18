@@ -9,20 +9,13 @@
 	<key>CFBundleDocumentTypes</key>
 	<array>
 		<dict>
-			<key>CFBundleTypeExtensions</key>
-			<array>
-				<string>vga</string>
-			</array>
 			<key>CFBundleTypeName</key>
 			<string>VGA Simulation</string>
-			<key>CFBundleTypeRole</key>
-			<string>Viewer</string>
 			<key>LSHandlerRank</key>
 			<string>Owner</string>
 			<key>LSItemContentTypes</key>
 			<array>
 				<string>com.pvieito.vgasimulation</string>
-				<string>public.item</string>
 			</array>
 		</dict>
 	</array>
