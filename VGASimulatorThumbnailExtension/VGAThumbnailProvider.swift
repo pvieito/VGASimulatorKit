@@ -12,9 +12,7 @@ import LoggerKit
 import VGASimulatorKit
 
 class VGAThumbnailProvider: QLThumbnailProvider {
-    
     override func provideThumbnail(for request: QLFileThumbnailRequest, _ handler: @escaping (QLThumbnailReply?, Error?) -> Void) {
-        
         // There are three ways to provide a thumbnail through a QLThumbnailReply. Only one of them should be used.
         Logger.log(debug: "Starting thumbnail request for \(request.fileURL.path)...")
         
