@@ -10,7 +10,6 @@ import Foundation
 import VGASimulatorCore
 
 public class VGASimulation {
-
     public enum SimulationError: LocalizedError {
         case fileNotAvailable
         case simulationComplete
@@ -37,29 +36,24 @@ public class VGASimulation {
             self.lastOutput = self.nextOutput
         }
     }
-
+    
     private var frameCounter = 0
     private var lastFrame = false
+    private var canvasFrame: VGAFrame
+    
+    private let inputSimulation: URL
+    private var simulationFile: UnsafeMutablePointer<FILE>?
 
-    public let inputSimulation: URL
     public let mode: VGAMode
 
     public var resolution: VGAResolution {
-        return currentFrame.resolution
+        return self.mode.resolution
     }
-    
-    public var channels: Int {
-        return currentFrame.channels
-    }
-
-    private var currentFrame: VGAFrame
-    private var simulationFile: UnsafeMutablePointer<FILE>?
 
     public init(url: URL, mode: VGAMode = VGAMode.vesa1280x1024_60) throws {
-
         self.inputSimulation = url
         self.mode = mode
-        self.currentFrame = try VGAFrame(resolution: mode.resolution)
+        self.canvasFrame = try VGAFrame(resolution: mode.resolution)
         
         guard let filePointer = VGAOpenFile(self.inputSimulation.path) else {
             throw SimulationError.fileNotAvailable
@@ -74,65 +68,59 @@ public class VGASimulation {
 }
 
 extension VGASimulation {
-
     func nextFrame() throws {
-        
-        guard !lastFrame else {
+        guard !self.lastFrame else {
             throw SimulationError.simulationComplete
         }
         
         var frameComplete = false
         
-        while VGAGetNextOutput(&self.simulationFile, &nextOutput) >= 0 {
-                        
-            if !lastOutput.vSync && nextOutput.vSync {
-
+        while VGAGetNextOutput(&self.simulationFile, &self.nextOutput) >= 0 {
+            if !self.lastOutput.vSync && self.nextOutput.vSync {
                 // Complete frame
-                frameComplete = frameCounter > 0
-                frameCounter += 1
-                hCounter = 0
-                vCounter = 0
+                frameComplete = self.frameCounter > 0
+                self.frameCounter += 1
+                self.hCounter = 0
+                self.vCounter = 0
 
                 // Set this to zero so we can count up to the actual
-                backPorchYCounter = 0
+                self.backPorchYCounter = 0
             }
-            else if !lastOutput.hSync && nextOutput.hSync {
-
+            else if !self.lastOutput.hSync && self.nextOutput.hSync {
                 // Complete row
-                hCounter = 0
+                self.hCounter = 0
 
                 // Move to the next row, if past back porch
-                if backPorchYCounter >= mode.backPorchY {
-                    vCounter += 1
+                if self.backPorchYCounter >= self.mode.backPorchY {
+                    self.vCounter += 1
                 }
 
                 // Increment this so we know how far we are after the vsync pulse
-                backPorchYCounter += 1
+                self.backPorchYCounter += 1
 
                 // Set this to zero so we can count up to the actual
-                backPorchXCounter = 0
+                self.backPorchXCounter = 0
             }
-            else if nextOutput.vSync && nextOutput.hSync {
-
+            else if self.nextOutput.vSync && self.nextOutput.hSync {
                 // Increment this so we know how far we are
                 // After the hsync pulse
-                backPorchXCounter += 1
+                self.backPorchXCounter += 1
 
                 // If we are past the back porch
                 // Then we can start drawing on the canvas
-                if backPorchXCounter >= mode.backPorchX && backPorchYCounter >= mode.backPorchY {
+                if self.backPorchXCounter >= self.mode.backPorchX && self.backPorchYCounter >= self.mode.backPorchY {
 
                     // Add pixel
-                    if hCounter < resolution.width && vCounter < resolution.height {
-                        let pixelIndex = (resolution.width * vCounter + hCounter) * channels
+                    if self.hCounter < self.resolution.width && self.vCounter < self.resolution.height {
+                        let pixelIndex = (self.resolution.width * self.vCounter + self.hCounter) * VGAFrame.channels
 
-                        self.currentFrame.pixelBuffer[pixelIndex] = nextOutput.red
-                        self.currentFrame.pixelBuffer[pixelIndex + 1] = nextOutput.green
-                        self.currentFrame.pixelBuffer[pixelIndex + 2] = nextOutput.blue
+                        self.canvasFrame.pixelBuffer[pixelIndex] = self.nextOutput.red
+                        self.canvasFrame.pixelBuffer[pixelIndex + 1] = self.nextOutput.green
+                        self.canvasFrame.pixelBuffer[pixelIndex + 2] = self.nextOutput.blue
                     }
 
-                    if backPorchXCounter >= mode.backPorchX {
-                        hCounter += 1
+                    if self.backPorchXCounter >= self.mode.backPorchX {
+                        self.hCounter += 1
                     }
                 }
             }
@@ -142,20 +130,16 @@ extension VGASimulation {
             }
         }
         
-        frameCounter += 1
-        
+        self.frameCounter += 1
         VGACloseFile(&self.simulationFile)
-        
-        lastFrame = true
+        self.lastFrame = true
     }
     
     public var frames: AnyIterator<VGAFrame> {
-        
         return AnyIterator<VGAFrame> {
-            
             do {
                 try self.nextFrame()                
-                return self.currentFrame
+                return self.canvasFrame
             }
             catch {
                 return nil

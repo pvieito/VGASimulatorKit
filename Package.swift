@@ -7,7 +7,7 @@ let package = Package(
     products: [
         .executable(
             name: "VGASimulator",
-            targets: ["VGASimulatorCommandLine"]
+            targets: ["VGASimulator"]
         ),
         .library(
             name: "VGASimulatorKit",
@@ -22,9 +22,9 @@ let package = Package(
     ],
     targets: [
         .target(
-            name: "VGASimulatorCommandLine",
+            name: "VGASimulator",
             dependencies: ["VGASimulatorKit", "LoggerKit", "CommandLineKit", "FoundationKit", "CoreGraphicsKit"],
-            path: "VGASimulatorCommandLine"
+            path: "VGASimulator"
         ),
         .target(
             name: "VGASimulatorKit",
@@ -34,6 +34,10 @@ let package = Package(
         .target(
             name: "VGASimulatorCore",
             path: "VGASimulatorCore"
+        ),
+        .testTarget(
+            name: "VGASimulatorKitTests",
+            dependencies: ["VGASimulatorKit", "FoundationKit"]
         )
     ]
 )

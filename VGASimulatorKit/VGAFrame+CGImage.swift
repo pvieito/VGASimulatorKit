@@ -11,7 +11,6 @@ import Foundation
 import CoreGraphics
 
 extension VGAFrame {
-    
     public enum RenderError: LocalizedError {
         case contextNotAvailable
         case imageNotAvailable
@@ -28,14 +27,15 @@ extension VGAFrame {
     
     public func cgImage() throws -> CGImage {
         var pixelBuffer = self.pixelBuffer
-        guard let context = CGContext(data: &pixelBuffer,
-                                      width: self.resolution.width,
-                                      height: self.resolution.height,
-                                      bitsPerComponent: 8,
-                                      bytesPerRow: self.resolution.width * self.channels,
-                                      space: CGColorSpaceCreateDeviceRGB(),
-                                      bitmapInfo: CGImageAlphaInfo.noneSkipLast.rawValue) else {
-                                        throw RenderError.contextNotAvailable
+        guard let context = CGContext(
+            data: &pixelBuffer,
+            width: self.resolution.width,
+            height: self.resolution.height,
+            bitsPerComponent: 8,
+            bytesPerRow: self.resolution.width * VGAFrame.channels,
+            space: CGColorSpaceCreateDeviceRGB(),
+            bitmapInfo: CGImageAlphaInfo.noneSkipLast.rawValue) else {
+                throw RenderError.contextNotAvailable
         }
         
         guard let cgImage = context.makeImage() else {

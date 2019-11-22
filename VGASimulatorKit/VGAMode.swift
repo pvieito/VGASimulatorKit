@@ -8,9 +8,11 @@
 
 import Foundation
 
-public struct VGAMode: CustomStringConvertible {
-    public static let vesa1280x1024_60 = VGAMode(width: 1280, height: 1024, backPorchX: 318, backPorchY: 38, refreshRate: 60)
-    public static let vesa640x480_60 = VGAMode(width: 640, height: 480, backPorchX: 48, backPorchY: 33, refreshRate: 60)
+public struct VGAMode: Equatable, CustomStringConvertible {
+    public static let vesa1280x1024_60 = VGAMode(
+        width: 1280, height: 1024, backPorchX: 318, backPorchY: 38, refreshRate: 60)
+    public static let vesa640x480_60 = VGAMode(
+        width: 640, height: 480, backPorchX: 48, backPorchY: 33, refreshRate: 60)
 
     public let resolution: VGAResolution
     public let refreshRate: Double

@@ -10,7 +10,6 @@ import Foundation
 import VGASimulatorCore
 
 extension VGAOutput {
-    
     init() {
         self.init(hSync: false, vSync: false, red: 0, green: 0, blue: 0)
     }

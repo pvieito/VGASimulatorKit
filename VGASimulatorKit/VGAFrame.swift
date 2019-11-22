@@ -9,7 +9,6 @@
 import Foundation
 
 public struct VGAFrame {
-    
     enum FrameError: LocalizedError {
         case invalidBufferSize
         
@@ -21,22 +20,22 @@ public struct VGAFrame {
         }
     }
     
+    static let channels: Int = 4
+
     public let resolution: VGAResolution
-    public let channels: Int
     public internal(set) var pixelBuffer: [UInt8]
-    
-    init(resolution: VGAResolution, channels: Int, pixelBuffer: [UInt8]) throws {
-        guard resolution.width * resolution.height * channels == pixelBuffer.count else {
+
+    private init(resolution: VGAResolution, pixelBuffer: [UInt8]) throws {
+        guard resolution.width * resolution.height * VGAFrame.channels == pixelBuffer.count else {
             throw FrameError.invalidBufferSize
         }
         
         self.resolution = resolution
-        self.channels = channels
         self.pixelBuffer = pixelBuffer
     }
     
-    init(resolution: VGAResolution, channels: Int = 4) throws {
-        let pixelBuffer = [UInt8](repeating: 0xFF, count: resolution.width * resolution.height * channels)
-        try self.init(resolution: resolution, channels: channels, pixelBuffer: pixelBuffer)
+    init(resolution: VGAResolution) throws {
+        let pixelBuffer = [UInt8](repeating: 0xFF, count: resolution.width * resolution.height * VGAFrame.channels)
+        try self.init(resolution: resolution, pixelBuffer: pixelBuffer)
     }
 }

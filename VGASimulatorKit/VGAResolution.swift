@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct VGAResolution: CustomStringConvertible {
+public struct VGAResolution: Equatable, CustomStringConvertible {
     public let width: Int
     public let height: Int
 
