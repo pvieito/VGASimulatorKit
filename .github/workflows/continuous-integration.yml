@@ -30,10 +30,10 @@ jobs:
           path: CommandLineKit
       - uses: actions/checkout@v1
         with:
-          repository: pvieito/FounationKit
+          repository: pvieito/FoundationKit
           ref: refs/heads/master
           token: ${{ secrets.GITHUB_PAT }}
-          path: FounationKit
+          path: FoundationKit
       - uses: actions/checkout@v1
         with:
           repository: pvieito/CoreGraphicsKit
