@@ -14,30 +14,32 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v1
+        with:
+          path: VGASimulator
       - uses: actions/checkout@v1
         with:
           repository: pvieito/LoggerKit
           ref: refs/heads/master
           token: ${{ secrets.GITHUB_PAT }}
-          path: ../LoggerKit
+          path: LoggerKit
       - uses: actions/checkout@v1
         with:
           repository: pvieito/CommandLineKit
           ref: refs/heads/master
           token: ${{ secrets.GITHUB_PAT }}
-          path: ../CommandLineKit
+          path: CommandLineKit
       - uses: actions/checkout@v1
         with:
           repository: pvieito/FounationKit
           ref: refs/heads/master
           token: ${{ secrets.GITHUB_PAT }}
-          path: ../FounationKit
+          path: FounationKit
       - uses: actions/checkout@v1
         with:
           repository: pvieito/CoreGraphicsKit
           ref: refs/heads/master
           token: ${{ secrets.GITHUB_PAT }}
-          path: ../CoreGraphicsKit
+          path: CoreGraphicsKit
       - name: Install Swift
         uses: YOCKOW/Action-setup-swift@master
         with:
