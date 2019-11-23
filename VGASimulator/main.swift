@@ -12,7 +12,7 @@ import FoundationKit
 import LoggerKit
 import CommandLineKit
 import CoreGraphicsKit
-import VGASimulatorKit
+import VGA_SimulatorKit
 
 let inputOption = StringOption(shortFlag: "i", longFlag: "input", required: true, helpMessage: "Input simulation.")
 let outputOption = StringOption(shortFlag: "o", longFlag: "output", helpMessage: "Output directory.")
