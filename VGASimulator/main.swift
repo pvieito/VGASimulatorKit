@@ -65,7 +65,7 @@ do {
             continue
         }
         
-        #if canImport(CoreGraphics)
+        #if TRUE // canImport(CoreGraphics)
         do {
             let outputDirectoryPath = outputOption.value ?? FileManager.default.autocleanedTemporaryDirectory.path
             let outputDirectoryURL = URL(fileURLWithPath: outputDirectoryPath)
