@@ -45,4 +45,4 @@ jobs:
         with:
           swift-version: '5.1'
       - name: Test
-        run: swift test --enable-test-discovery
+        run: swift test --enable-test-discovery --package-path VGASimulator
