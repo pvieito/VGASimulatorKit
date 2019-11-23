@@ -76,7 +76,7 @@ do {
             
             Logger.log(debug: "Writing rendered image for frame \(frameCount) at “\(outputURL.path)”...")
             
-            try frame.cgImage().write(to: outputURL, format: .png)
+            try frame.cgIm_age().write(to: outputURL, format: .png)
 
             if outputOption.value == nil {
                 try outputURL.open()
