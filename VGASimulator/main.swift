@@ -65,6 +65,7 @@ do {
             continue
         }
         
+        #if canImport(CoreGraphics)
         do {
             let outputDirectoryPath = outputOption.value ?? FileManager.default.autocleanedTemporaryDirectory.path
             let outputDirectoryURL = URL(fileURLWithPath: outputDirectoryPath)
@@ -76,7 +77,7 @@ do {
             Logger.log(debug: "Writing rendered image for frame \(frameCount) at “\(outputURL.path)”...")
             
             try frame.cgImage().write(to: outputURL, format: .png)
-            
+
             if outputOption.value == nil {
                 try outputURL.open()
             }
@@ -84,6 +85,7 @@ do {
         catch {
             Logger.log(error: error)
         }
+        #endif
     }
 }
 catch {
