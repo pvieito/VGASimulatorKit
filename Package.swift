@@ -3,7 +3,7 @@
 import PackageDescription
 
 let package = Package(
-    name: "VGASimulator",
+    name: "VGASimulatorKit",
     products: [
         .executable(
             name: "VGASimulator",
