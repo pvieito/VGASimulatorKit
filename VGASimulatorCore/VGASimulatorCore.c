@@ -9,28 +9,25 @@
 #include "VGASimulatorCore.h"
 
 FILE* _Nullable VGAOpenFile(const char * path) {
-        
     FILE *file = fopen(path, "r");
     
     if (file == NULL) {
         return NULL;
     }
-
+    
     return file;
 }
 
 int VGACloseFile(FILE** file) {
-
     if (*file != NULL) {
         fclose(*file);
     }
-
+    
     *file = NULL;
     return 0;
 }
 
 int VGAGetNextLine(FILE **file, char **line) {
-
     if (file == NULL) {
         return -1;
     }
@@ -46,7 +43,6 @@ int VGAGetNextLine(FILE **file, char **line) {
 }
 
 int VGAGetNextOutput(FILE **file, VGAOutput *vgaOuput) {
-
     char * line = NULL;
 
     if (VGAGetNextLine(file, &line) < 0) {
@@ -81,6 +77,5 @@ int VGAGetNextOutput(FILE **file, VGAOutput *vgaOuput) {
     }
     
     free(line);
-
     return 0;
 }
