@@ -5,7 +5,7 @@ Swift framework and tool to parse and render frames from VGA simulations.
 ## Usage
 
 ```bash
-$ swift run VGASimulator -i simulation.vga
+$ swift run VGASimulator -i SimulationName.vga
 ```
 
 ## Dependencies
