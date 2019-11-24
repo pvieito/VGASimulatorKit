@@ -1,6 +1,6 @@
 # VGASimulatorKit
 
-Swift framework and tool to parse and render frames from VGA output files.
+Swift framework and tool to parse and render frames from VGA simulations.
 
 ## Usage
 
