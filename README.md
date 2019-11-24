@@ -1,6 +1,6 @@
 # VGASimulatorKit
 
-Swift framework and tool to parse and render frames from VGA simulations.
+Swift framework and tool to parse and render frames from VGA output files.
 
 ## Usage
 
@@ -12,6 +12,7 @@ $ swift run VGASimulator -i SimulationName.vga
 
 - Swift 5.1+
 
-## Note
+## Notes
 
-`VGASimulatorKit` is heavily inspired by [`vga-simulator`](https://github.com/MadLittleMods/vga-simulator).
+- `VGASimulatorKit` is heavily inspired by [`vga-simulator`](https://github.com/MadLittleMods/vga-simulator).
+- Check out how to generate VGA output files from a VHDL simulation on [this post](http://ericeastwood.com/blog/8/vga-simulator-getting-started).
