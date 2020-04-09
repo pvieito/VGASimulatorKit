@@ -6,26 +6,24 @@
 //  Copyright © 2018 Pedro José Pereira Vieito. All rights reserved.
 //
 
-#if canImport(CoreGraphics)
+#if canImport(CoreGraphics) && !NO_COREGRAPHICS
 import Foundation
 import CoreGraphics
+import CoreGraphicsKit
 
 extension VGAFrame {
-    public enum RenderError: LocalizedError {
+    private enum CoreGraphicsRenderError: LocalizedError {
         case contextNotAvailable
-        case imageNotAvailable
         
-        public var errorDescription: String? {
+        var errorDescription: String? {
             switch self {
             case .contextNotAvailable:
                 return "Error creating Core Graphics context."
-            case .imageNotAvailable:
-                return "Error rendering Core Graphics image."
             }
         }
     }
     
-    public func cgImage() throws -> CGImage {
+    private func cgImage() throws -> CGImage {
         var pixelBuffer = self.pixelBuffer
         guard let context = CGContext(
             data: &pixelBuffer,
@@ -35,14 +33,18 @@ extension VGAFrame {
             bytesPerRow: self.resolution.width * VGAFrame.channels,
             space: CGColorSpaceCreateDeviceRGB(),
             bitmapInfo: CGImageAlphaInfo.noneSkipLast.rawValue) else {
-                throw RenderError.contextNotAvailable
+                throw CoreGraphicsRenderError.contextNotAvailable
         }
         
         guard let cgImage = context.makeImage() else {
-            throw RenderError.contextNotAvailable
+            throw CoreGraphicsRenderError.contextNotAvailable
         }
         
         return cgImage
+    }
+    
+    public func write(to url: URL) throws {
+        try self.cgImage().write(to: url, format: .png)
     }
 }
 #endif

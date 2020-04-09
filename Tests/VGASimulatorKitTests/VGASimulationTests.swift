@@ -9,7 +9,7 @@
 import Foundation
 import FoundationKit
 import XCTest
-import VGASimulatorKit
+@testable import VGASimulatorKit
 
 class VGASimulationTests: XCTestCase {
     static let testBundle = Bundle.currentModuleBundle()
@@ -40,10 +40,10 @@ class VGASimulationTests: XCTestCase {
         XCTAssertEqual(frame1.pixelBuffer.map(Int.init).reduce(0, +), 334624080)
         XCTAssertEqual(frame1.pixelBuffer.count, 5242880)
 
-        #if canImport(CoreGraphics)
-        XCTAssertNotNil(try frame0.cgImage())
-        XCTAssertNotNil(try frame1.cgImage())
-        #endif
+        let frame0_URL = FileManager.default.temporaryRandomFileURL(pathExtension: "png")
+        try frame0.write(to: frame0_URL)
+        let frame1_URL = FileManager.default.temporaryRandomFileURL(pathExtension: "png")
+        try frame1.write(to: frame1_URL)
     }
     
     func _testVGASimulationPerformance() throws {

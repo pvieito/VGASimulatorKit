@@ -11,6 +11,7 @@ import Foundation
 import FoundationKit
 import LoggerKit
 import CoreGraphicsKit
+import SwiftGD
 import VGASimulatorKit
 import ArgumentParser
 
@@ -61,7 +62,6 @@ struct VGASimulator: ParsableCommand {
                     continue
                 }
                 
-                #if canImport(CoreGraphics)
                 do {
                     let outputDirectoryPath = output ?? FileManager.default.autocleanedTemporaryDirectory.path
                     let outputDirectoryURL = URL(fileURLWithPath: outputDirectoryPath)
@@ -72,7 +72,7 @@ struct VGASimulator: ParsableCommand {
                     
                     Logger.log(debug: "Writing rendered image for frame \(frameCount) at “\(outputURL.path)”...")
                     
-                    try frame.cgImage().write(to: outputURL, format: .png)
+                    try frame.write(to: outputURL)
 
                     if self.output == nil {
                         try outputURL.open()
@@ -81,7 +81,6 @@ struct VGASimulator: ParsableCommand {
                 catch {
                     Logger.log(error: error)
                 }
-                #endif
             }
         }
         catch {
