@@ -15,15 +15,15 @@ let package = Package(
         )
     ],
     dependencies: [
-        .package(url: "https://github.com/pvieito/CommandLineKit.git", .branch("master")),
         .package(url: "https://github.com/pvieito/LoggerKit.git", .branch("master")),
         .package(url: "https://github.com/pvieito/FoundationKit.git", .branch("master")),
-        .package(url: "https://github.com/pvieito/CoreGraphicsKit.git", .branch("master"))
+        .package(url: "https://github.com/pvieito/CoreGraphicsKit.git", .branch("master")),
+        .package(url: "https://github.com/apple/swift-argument-parser", .upToNextMinor(from: "0.0.1")),
     ],
     targets: [
         .target(
             name: "VGASimulator",
-            dependencies: ["VGASimulatorKit", "LoggerKit", "CommandLineKit", "FoundationKit", "CoreGraphicsKit"],
+            dependencies: ["VGASimulatorKit", "LoggerKit", "FoundationKit", "CoreGraphicsKit", .product(name: "ArgumentParser", package: "swift-argument-parser")],
             path: "VGASimulator"
         ),
         .target(

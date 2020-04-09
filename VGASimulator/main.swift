@@ -10,84 +10,84 @@
 import Foundation
 import FoundationKit
 import LoggerKit
-import CommandLineKit
 import CoreGraphicsKit
 import VGASimulatorKit
+import ArgumentParser
 
-let inputOption = StringOption(shortFlag: "i", longFlag: "input", required: true, helpMessage: "Input simulation.")
-let outputOption = StringOption(shortFlag: "o", longFlag: "output", helpMessage: "Output directory.")
-let framesOption = IntOption(shortFlag: "f", longFlag: "frames", helpMessage: "Number of frames.")
-let noRenderOption = BoolOption(longFlag: "norender", helpMessage: "Disable rendering of frames.")
-let verboseOption = BoolOption(shortFlag: "v", longFlag: "verbose", helpMessage: "Verbose mode.")
-let debugOption = BoolOption(shortFlag: "d", longFlag: "debug", helpMessage: "Debug mode.")
-let helpOption = BoolOption(shortFlag: "h", longFlag: "help", helpMessage: "Prints a help message.")
-
-let cli = CommandLineKit.CommandLine()
-cli.addOptions(inputOption, outputOption, framesOption, noRenderOption, verboseOption, debugOption, helpOption)
-
-do {
-    try cli.parse(strict: true)
-}
-catch {
-    cli.printUsage(error)
-    exit(EX_USAGE)
-}
-
-if helpOption.value {
-    cli.printUsage()
-    exit(0)
-}
-
-Logger.logMode = .commandLine
-Logger.logLevel = verboseOption.value ? .verbose : .info
-Logger.logLevel = debugOption.value ? .debug : Logger.logLevel
-
-guard let inputPath = inputOption.value else {
-    Logger.log(fatalError: "No input simulation specified.")
-}
-
-do {
-    let inputURL = URL(fileURLWithPath: inputPath)
-    let simulation = try VGASimulation(url: inputURL)
-    let simulationName = inputURL.deletingPathExtension().lastPathComponent
+struct VGASimulator: ParsableCommand {
+    static var configuration: CommandConfiguration {
+        return CommandConfiguration(commandName: String(describing: Self.self))
+    }
     
-    Logger.log(important: "VGA Simulation Input: \(inputURL.lastPathComponent)")
-    Logger.log(info: "VGA Mode: \(simulation.mode)")
+    @Option(name: .shortAndLong, help: "Input simulation.")
+    var input: String
     
-    for (frameCount, frame) in simulation.frames.enumerated() {
-        if let frameLimit = framesOption.value, frameLimit <= frameCount {
-            break
-        }
-        
-        Logger.log(success: "Frame \(frameCount) decoded")
-        
-        guard !noRenderOption.value else {
-            continue
-        }
-        
-        #if canImport(CoreGraphics)
+    @Option(name: .shortAndLong, help: "Output directory.")
+    var output: String?
+
+    @Option(name: .shortAndLong, help: "Number of frames to process.")
+    var frameLimit: Int?
+
+    @Flag(name: .long, default: true, inversion: .prefixedNo, help: "Render and show frames.")
+    var render: Bool
+
+    @Flag(name: .shortAndLong, help: "Verbose mode.")
+    var verbose: Bool
+
+    @Flag(name: .shortAndLong, help: "Debug mode.")
+    var debug: Bool
+
+    func run() throws {
         do {
-            let outputDirectoryPath = outputOption.value ?? FileManager.default.autocleanedTemporaryDirectory.path
-            let outputDirectoryURL = URL(fileURLWithPath: outputDirectoryPath)
-            
-            let outputURL = outputDirectoryURL
-                .appendingPathComponent("\(simulationName)_\(frameCount)")
-                .appendingPathExtension("png")
-            
-            Logger.log(debug: "Writing rendered image for frame \(frameCount) at “\(outputURL.path)”...")
-            
-            try frame.cgImage().write(to: outputURL, format: .png)
+            Logger.logMode = .commandLine
+            Logger.logLevel = self.verbose ? .verbose : .info
+            Logger.logLevel = self.debug ? .debug : Logger.logLevel
 
-            if outputOption.value == nil {
-                try outputURL.open()
+            let inputURL = self.input.pathURL
+            let simulation = try VGASimulation(url: inputURL)
+            let simulationName = inputURL.deletingPathExtension().lastPathComponent
+            
+            Logger.log(important: "VGA Simulation Input: \(inputURL.lastPathComponent)")
+            Logger.log(info: "VGA Mode: \(simulation.mode)")
+            
+            for (frameCount, frame) in simulation.frames.enumerated() {
+                if let frameLimit = self.frameLimit, frameLimit <= frameCount {
+                    break
+                }
+                
+                Logger.log(success: "Frame \(frameCount) decoded")
+                
+                guard self.render else {
+                    continue
+                }
+                
+                #if canImport(CoreGraphics)
+                do {
+                    let outputDirectoryPath = output ?? FileManager.default.autocleanedTemporaryDirectory.path
+                    let outputDirectoryURL = URL(fileURLWithPath: outputDirectoryPath)
+                    
+                    let outputURL = outputDirectoryURL
+                        .appendingPathComponent("\(simulationName)_\(frameCount)")
+                        .appendingPathExtension("png")
+                    
+                    Logger.log(debug: "Writing rendered image for frame \(frameCount) at “\(outputURL.path)”...")
+                    
+                    try frame.cgImage().write(to: outputURL, format: .png)
+
+                    if self.output == nil {
+                        try outputURL.open()
+                    }
+                }
+                catch {
+                    Logger.log(error: error)
+                }
+                #endif
             }
         }
         catch {
-            Logger.log(error: error)
+            Logger.log(fatalError: error)
         }
-        #endif
     }
 }
-catch {
-    Logger.log(fatalError: error)
-}
+
+VGASimulator.main()
