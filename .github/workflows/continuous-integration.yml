@@ -18,5 +18,11 @@ jobs:
         uses: YOCKOW/Action-setup-swift@master
         with:
           swift-version: '5.1'
+      - name: Install GD (macOS)
+        run: brew install gd
+        if: runner.os == 'macOS'
+      - name: Install GD (Linux)
+        run: sudo apt install -y libgd-dev
+        if: runner.os == 'Linux'
       - name: Test
         run: swift test --enable-test-discovery
