@@ -30,7 +30,10 @@ let package = Package(
         .target(
             name: "VGASimulatorKit",
             dependencies: ["VGASimulatorCore", "CoreGraphicsKit", "SwiftGD"],
-            path: "VGASimulatorKit"
+            path: "VGASimulatorKit",
+            swiftSettings: [
+                .define("_NO_COREGRAPHICS")
+            ]
         ),
         .target(
             name: "VGASimulatorCore",
