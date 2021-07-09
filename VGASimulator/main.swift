@@ -29,14 +29,14 @@ struct VGASimulator: ParsableCommand {
     @Option(name: .shortAndLong, help: "Number of frames to process.")
     var frameLimit: Int?
 
-    @Flag(name: .long, default: true, inversion: .prefixedNo, help: "Render and show frames.")
-    var render: Bool
+    @Flag(name: .long, inversion: .prefixedNo, help: "Render and show frames.")
+    var render: Bool = false
 
     @Flag(name: .shortAndLong, help: "Verbose mode.")
-    var verbose: Bool
+    var verbose: Bool = false
 
     @Flag(name: .shortAndLong, help: "Debug mode.")
-    var debug: Bool
+    var debug: Bool = false
 
     func run() throws {
         do {
