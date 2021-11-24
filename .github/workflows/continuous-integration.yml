@@ -19,14 +19,8 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           known_hosts: ${{ secrets.SSH_KNOWN_HOSTS }}
       - uses: actions/checkout@v1
-      - name: Install GD (macOS)
-        run: brew install gd
-        if: runner.os == 'macOS'
       - name: Install GD (Linux)
         run: sudo apt install -y libgd-dev
         if: runner.os == 'Linux'
       - name: Test
         run: swift test
-      - name: Test (NO_COREGRAPHICS)
-        if: runner.os == 'macOS'
-        run: swift test -Xswiftc -DNO_COREGRAPHICS
