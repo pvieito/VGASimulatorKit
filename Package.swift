@@ -1,4 +1,4 @@
-// swift-tools-version:5.0
+// swift-tools-version:5.3
 
 import PackageDescription
 
@@ -32,7 +32,7 @@ let package = Package(
         ),
         .target(
             name: "VGASimulatorKit",
-            dependencies: ["VGASimulatorCore", "CoreGraphicsKit", "SwiftGD"],
+            dependencies: ["VGASimulatorCore", "CoreGraphicsKit", .product(name: "SwiftGD", package: "SwiftGD", condition: .when(platforms: [.linux]))],
             path: "VGASimulatorKit",
             swiftSettings: [
                 .define("_NO_COREGRAPHICS")
@@ -44,7 +44,8 @@ let package = Package(
         ),
         .testTarget(
             name: "VGASimulatorKitTests",
-            dependencies: ["VGASimulatorKit", "FoundationKit"]
+            dependencies: ["VGASimulatorKit", "FoundationKit"],
+            resources: [.process("Resources")]
         )
     ]
 )

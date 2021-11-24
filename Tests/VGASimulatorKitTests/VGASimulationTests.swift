@@ -12,7 +12,7 @@ import XCTest
 @testable import VGASimulatorKit
 
 class VGASimulationTests: XCTestCase {
-    static let testBundle = Bundle.currentModuleBundle()
+    static let testBundle = Bundle.module
     static let testSimulationURL = testBundle.url(forResource: "TestSimulation", withExtension: "vga")!
     
     func testVGASimulation() throws {
