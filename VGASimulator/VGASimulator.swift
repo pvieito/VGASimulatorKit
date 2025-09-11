@@ -1,5 +1,5 @@
 //
-//  main.swift
+//  VGASimulator.swift
 //  VGASimulator
 //  Tool to view VGA output from a VHDL simulation.
 //
@@ -14,6 +14,7 @@ import CoreGraphicsKit
 import VGASimulatorKit
 import ArgumentParser
 
+@main
 struct VGASimulator: ParsableCommand {
     static var configuration: CommandConfiguration {
         return CommandConfiguration(commandName: String(describing: Self.self))
@@ -88,4 +89,3 @@ struct VGASimulator: ParsableCommand {
     }
 }
 
-VGASimulator.main()

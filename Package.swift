@@ -1,11 +1,11 @@
-// swift-tools-version:5.3
+// swift-tools-version:5.9
 
 import PackageDescription
 
 let package = Package(
     name: "VGASimulatorKit",
     platforms: [
-        .macOS(.v10_12),
+        .macOS(.v12),
     ],
     products: [
         .executable(
@@ -18,14 +18,14 @@ let package = Package(
         )
     ],
     dependencies: [
-        .package(url: "git@github.com:pvieito/LoggerKit.git", .branch("master")),
-        .package(url: "git@github.com:pvieito/FoundationKit.git", .branch("master")),
-        .package(url: "git@github.com:pvieito/CoreGraphicsKit.git", .branch("master")),
+        .package(url: "git@github.com:pvieito/LoggerKit.git", branch: "master"),
+        .package(url: "git@github.com:pvieito/FoundationKit.git", branch: "master"),
+        .package(url: "git@github.com:pvieito/CoreGraphicsKit.git", branch: "master"),
         .package(url: "https://github.com/twostraws/SwiftGD.git", from: "2.0.0"),
-        .package(url: "https://github.com/apple/swift-argument-parser", from: "0.0.1"),
+        .package(url: "https://github.com/apple/swift-argument-parser", from: "1.0.0"),
     ],
     targets: [
-        .target(
+        .executableTarget(
             name: "VGASimulator",
             dependencies: ["VGASimulatorKit", "LoggerKit", "FoundationKit", .product(name: "ArgumentParser", package: "swift-argument-parser")],
             path: "VGASimulator"
